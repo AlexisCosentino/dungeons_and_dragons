@@ -1,10 +1,14 @@
 package character;
 
+import powers.Storm;
+
 public class Wizard {
 	private String name = "default";
 	private int health = 3;
 	private int strength = 5;
 	private String img = "url";
+	private Storm weapon;
+
 
 	
 	public Wizard() {
@@ -20,6 +24,7 @@ public class Wizard {
 		this.img = img;
 		this.health = health;
 		this.strength = strength;
+		this.weapon = new Storm("Tempete des Titans", 35);
 	}
 	
 	

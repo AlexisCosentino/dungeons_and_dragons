@@ -1,5 +1,7 @@
 package character;
 
+import weapons.Sword;
+
 public class Warrior {
 	
 	//attributes
@@ -7,6 +9,9 @@ public class Warrior {
 	private int health = 5;
 	private int strength = 5;
 	private String img = "url";
+	private String weaponName;
+	private int weaponStrength;
+	
 	
 	public Warrior() {
 		
@@ -21,6 +26,12 @@ public class Warrior {
 		this.img = img;
 		this.health = health;
 		this.strength = strength;
+		Sword weapon = new  Sword("Epée de l'apprentis", 20);
+		this.weaponName = weapon.getName();
+		this.weaponStrength = weapon.getStrength();
+
+		
+		
 	}
 	
 	
@@ -42,6 +53,13 @@ public class Warrior {
 		return img;
 	}
 	
+	public String getWeaponName() {
+		return weaponName;
+	}
+	public int getWeaponStrength() {
+		return weaponStrength;
+	}
+	
 	
 	//SETTER
 	
@@ -60,4 +78,5 @@ public class Warrior {
 	public void setImage(String a) {
 		img = a;
 	}
+	
 }

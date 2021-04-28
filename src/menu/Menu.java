@@ -32,6 +32,7 @@ public class Menu {
 				Warrior player = new Warrior(userName, userName, 5, 5);
 				
 				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
+				System.out.println("Votre arme de base sera " + player.getWeaponName() + " avec " + player.getWeaponStrength() + " de points d'attaque");
 
 				
 			} else if ("magicien".equalsIgnoreCase(userChoice)){
@@ -40,7 +41,7 @@ public class Menu {
 				String userName = in.nextLine();
 				
 				Wizard player = new Wizard(userName, userName, 3, 8);
-				
+
 				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
 
 				
