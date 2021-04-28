@@ -24,27 +24,24 @@ public class Menu {
 			
 			System.out.println("Magnifique !! Commencez par choisir votre personnage : 'magicien' / 'guerrier' ");
 			userChoice = in.nextLine();
-			userChoice.toString();
 			
 			if ("guerrier".equalsIgnoreCase(userChoice)) {
 				System.out.println("Quel sera votret petit nom de guerrier victime ?");
 				String userName = in.nextLine();
-				userName.toString();
 				
 				Warrior player = new Warrior(userName, userName, 5, 5);
 				
-				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.warriorName + ", votre attaque sera de : " + player.warriorStrength + " et votre santée de " + player.warriorHealth);
+				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
 
 				
 			} else if ("magicien".equalsIgnoreCase(userChoice)){
 				
 				System.out.println("Quel sera votret petit nom de magicien victime ?");
 				String userName = in.nextLine();
-				userName.toString();
 				
 				Wizard player = new Wizard(userName, userName, 3, 8);
 				
-//				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.wizardName + ", votre attaque sera de : " + player.wizardStrength + " et votre santée de " + player.wizardHealth);
+				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
 
 				
 			} else if ("exit".equalsIgnoreCase(userChoice)){

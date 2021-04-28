@@ -3,10 +3,10 @@ package character;
 public class Warrior {
 	
 	//attributes
-	public String warriorName = "default";
-	public int warriorHealth;
-	public int warriorStrength;
-	public String warriorImage;
+	private String name = "default";
+	private int health = 5;
+	private int strength = 5;
+	private String img = "url";
 	
 	public Warrior() {
 		
@@ -17,14 +17,47 @@ public class Warrior {
 	}
 	
 	public Warrior(String name, String img, int health, int strength) {
-		warriorName = name;
-		warriorImage = img;
-		warriorHealth = health;
-		warriorStrength = strength;
+		this.name = name;
+		this.img = img;
+		this.health = health;
+		this.strength = strength;
 	}
 	
-	public String toString() {
-		return "Le guerrier qui s'appelle " + this.warriorName + " , santé : " + this.warriorHealth + ", force : " + this.warriorStrength;
+	
+	//GETTER
+	
+	public String getName() {
+		return name;
 	}
-
+	
+	public int getHealth() {
+		return health;
+	}
+	
+	public int getStrength() {
+		return strength;
+	}
+	
+	public String getImage() {
+		return img;
+	}
+	
+	
+	//SETTER
+	
+	public void setName(String a) {
+		name = a;
+	}
+	
+	public void setHealth(int a) {
+		health = a;
+	}
+	
+	public void setName(int a) {
+		strength = a;
+	}
+	
+	public void setImage(String a) {
+		img = a;
+	}
 }

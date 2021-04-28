@@ -1,10 +1,10 @@
 package character;
 
 public class Wizard {
-	String wizardName;
-	int wizardHealth;
-	int wizardStrength;
-	String wizardImage;
+	private String name = "default";
+	private int health = 3;
+	private int strength = 5;
+	private String img = "url";
 
 	
 	public Wizard() {
@@ -16,14 +16,56 @@ public class Wizard {
 	}
 	
 	public Wizard(String name, String img, int health, int strength) {
-		wizardName = name;
-		wizardImage = img;
-		wizardHealth = health;
-		wizardStrength = strength;
+		this.name = name;
+		this.img = img;
+		this.health = health;
+		this.strength = strength;
 	}
 	
+	
+	//GETTER
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getHealth() {
+		return health;
+	}
+	
+	public int getStrength() {
+		return strength;
+	}
+	
+	public String getImage() {
+		return img;
+	}
+	
+	
+	//SETTER
+	
+	public void setName(String a) {
+		name = a;
+	}
+	
+	public void setHealth(int a) {
+		health = a;
+	}
+	
+	public void setName(int a) {
+		strength = a;
+	}
+	
+	public void setImage(String a) {
+		img = a;
+	}
+	
+	
+	
+	/*
 	public String toString() {
 		return "Le Sorcier qui s'appelle " + this.wizardName + " , santé : " + this.wizardHealth + ", force : " + this.wizardStrength;
 	}
+	*/
 
 }
