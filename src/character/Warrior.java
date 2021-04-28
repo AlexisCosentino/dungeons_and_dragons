@@ -3,7 +3,7 @@ package character;
 public class Warrior {
 	
 	//attributes
-	public String warriorName;
+	public String warriorName = "default";
 	public int warriorHealth;
 	public int warriorStrength;
 	public String warriorImage;

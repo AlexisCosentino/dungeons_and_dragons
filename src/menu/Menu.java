@@ -42,8 +42,10 @@ public class Menu {
 				String userName = in.nextLine();
 				userName.toString();
 				
-				Warrior player = new Warrior(userName, userName, 5, 5);
+				Wizard player = new Wizard(userName, userName, 3, 8);
 				
+//				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.wizardName + ", votre attaque sera de : " + player.wizardStrength + " et votre santée de " + player.wizardHealth);
+
 				
 			} else if ("exit".equalsIgnoreCase(userChoice)){
 				exit();
