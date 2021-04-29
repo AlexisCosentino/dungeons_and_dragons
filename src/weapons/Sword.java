@@ -2,7 +2,7 @@ package weapons;
 
 public class Sword {
 	private String name = "Sword";
-	private int strength = 20;
+	private int strength = 5;
 	
 	
 	public Sword(String name, int strength) {

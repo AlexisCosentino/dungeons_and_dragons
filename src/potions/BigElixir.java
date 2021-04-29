@@ -1,17 +1,13 @@
-package powers;
+package potions;
 
-public class Storm {
-	private String name = "Eclair";
-	private int strength = 2;
+public class BigElixir {
+	private String name = "Grande potion de vie";
+	private int strength = 5;
 	
-	
-	public Storm(String name, int strength) {
-		this.name = name;
-		this.strength = strength;
+	public BigElixir() {
+		
 	}
 
-
-	
 	//GETTER
 	public String getName() {
 		return name;
@@ -23,15 +19,15 @@ public class Storm {
 	
 	
 	//SETTER
-
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public void setStrength(int strength) {
 		this.strength = strength;
 	}
 	
 	
-
+	
 }

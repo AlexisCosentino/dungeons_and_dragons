@@ -7,7 +7,10 @@ public class Wizard {
 	private int health = 3;
 	private int strength = 5;
 	private String img = "url";
-	private Storm weapon;
+	private String weaponName;
+	private int weaponStrength;
+	private String potionName;
+	private int potionStrength;
 
 
 	
@@ -24,7 +27,9 @@ public class Wizard {
 		this.img = img;
 		this.health = health;
 		this.strength = strength;
-		this.weapon = new Storm("Tempete des Titans", 35);
+		Storm weapon = new Storm("Tempete des Titans", 35);
+		this.weaponName = weapon.getName();
+		this.weaponStrength = weapon.getStrength();
 	}
 	
 	
@@ -46,6 +51,21 @@ public class Wizard {
 		return img;
 	}
 	
+	public String getWeaponName() {
+		return weaponName;
+	}
+	
+	public int getWeaponStrength() {
+		return weaponStrength;
+	}
+	
+	public String getPotionName() {
+		return potionName;
+	}
+	
+	public int getPotionStrength() {
+		return potionStrength;
+	}
 	
 	//SETTER
 	
@@ -65,12 +85,19 @@ public class Wizard {
 		img = a;
 	}
 	
-	
-	
-	/*
-	public String toString() {
-		return "Le Sorcier qui s'appelle " + this.wizardName + " , santé : " + this.wizardHealth + ", force : " + this.wizardStrength;
+	public void setWeaponName(String a) {
+		weaponName = a;
 	}
-	*/
+	
+	public void setWeaponStrength(int a) {
+		weaponStrength = a;
+	}
+	
+	public void setPotionName(String a) {
+		potionName = a;
+	}
+	public void setPotionStrength(int a) {
+		potionStrength = a;
+	}
 
 }

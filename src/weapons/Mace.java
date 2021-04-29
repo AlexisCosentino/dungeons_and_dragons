@@ -1,29 +1,24 @@
-package powers;
+package weapons;
 
-public class Storm {
-	private String name = "Eclair";
-	private int strength = 2;
+public class Mace {
+	private String name = "Massue";
+	private int strength = 3;
 	
-	
-	public Storm(String name, int strength) {
-		this.name = name;
-		this.strength = strength;
+	public Mace(){
+		
 	}
 
-
-	
 	//GETTER
 	public String getName() {
 		return name;
 	}
-
+	
 	public int getStrength() {
 		return strength;
 	}
-	
+
 	
 	//SETTER
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -33,5 +28,4 @@ public class Storm {
 	}
 	
 	
-
 }

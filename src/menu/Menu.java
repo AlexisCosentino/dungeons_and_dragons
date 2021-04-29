@@ -3,6 +3,8 @@ package menu;
 import character.Wizard;
 import character.Warrior;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+
 
 public class Menu {
 	
@@ -10,11 +12,18 @@ public class Menu {
 		System.out.println("Bye bye petit lacheur..");
 		System.exit(0);
 	}
+	
+	public static int play() {
+		int randomNum = ThreadLocalRandom.current().nextInt(1, 6 + 1);
+		return randomNum;
+	}
 
 	
 	public static void main(String[] args) {
 		System.out.println("Bienvenue dans le jeu Dungeons & Dragons !");
-		System.out.println("Tapez 'exit' pour quitter le jeu");		
+		System.out.println("Tapez 'exit' pour quitter le jeu");	
+		int de = play();
+		System.out.println(de);
 		System.out.println("Etes-vous prêt à jouer et pleurer du sang ? 'yes' / 'no'");
 		Scanner in = new Scanner(System.in);
 		String userChoice = in.nextLine();
@@ -32,7 +41,7 @@ public class Menu {
 				Warrior player = new Warrior(userName, userName, 5, 5);
 				
 				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
-				System.out.println("Votre arme de base sera " + player.getWeaponName() + " avec " + player.getWeaponStrength() + " de points d'attaque");
+				System.out.println("Votre arme de base sera " + player.getWeaponName() + ", avec " + player.getWeaponStrength() + " de points d'attaque");
 
 				
 			} else if ("magicien".equalsIgnoreCase(userChoice)){
@@ -43,12 +52,20 @@ public class Menu {
 				Wizard player = new Wizard(userName, userName, 3, 8);
 
 				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
+				System.out.println("Votre arme de base sera " + player.getWeaponName() + ", avec " + player.getWeaponStrength() + " de points d'attaque");
 
 				
 			} else if ("exit".equalsIgnoreCase(userChoice)){
 				exit();
 			}
-			
+			System.out.println("Le jeu est simple, il ya 64 cases à parcourir. Certaines vous donneront de meilleurs armes/potion et d'autre des enemies à combattre.");
+			System.out.println("Lancer le dé ? yes / no");
+			String play = in.nextLine();
+			if ("yes".equalsIgnoreCase(play)) {
+				
+			} else {
+				exit();
+			}
 
 			
 

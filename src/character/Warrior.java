@@ -11,6 +11,8 @@ public class Warrior {
 	private String img = "url";
 	private String weaponName;
 	private int weaponStrength;
+	private String shieldName;
+	private int shieldStrength;
 	
 	
 	public Warrior() {
@@ -26,11 +28,10 @@ public class Warrior {
 		this.img = img;
 		this.health = health;
 		this.strength = strength;
-		Sword weapon = new  Sword("Epée de l'apprentis", 20);
+		Sword weapon = new  Sword("Epée de l'apprentis", 5);
 		this.weaponName = weapon.getName();
 		this.weaponStrength = weapon.getStrength();
 
-		
 		
 	}
 	
@@ -60,9 +61,22 @@ public class Warrior {
 		return weaponStrength;
 	}
 	
+	public String getShieldName() {
+		return shieldName;
+	}
+
+	public int getShieldStrength() {
+		return shieldStrength;
+	}
+	
+	
 	
 	//SETTER
 	
+
+
+
+
 	public void setName(String a) {
 		name = a;
 	}
@@ -77,6 +91,23 @@ public class Warrior {
 	
 	public void setImage(String a) {
 		img = a;
+	}
+	
+	
+	public void setWeaponName(String weaponName) {
+		this.weaponName = weaponName;
+	}
+
+	public void setWeaponStrength(int weaponStrength) {
+		this.weaponStrength = weaponStrength;
+	}
+
+	public void setShieldName(String shieldName) {
+		this.shieldName = shieldName;
+	}
+	
+	public void setShieldStrength(int shieldStrength) {
+		this.shieldStrength = shieldStrength;
 	}
 	
 }

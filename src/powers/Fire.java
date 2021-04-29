@@ -1,22 +1,19 @@
 package powers;
 
-public class Storm {
-	private String name = "Eclair";
-	private int strength = 2;
+public class Fire {
+	private String name = "Boule de feu";
+	private int strength = 7;
 	
-	
-	public Storm(String name, int strength) {
-		this.name = name;
-		this.strength = strength;
+	public Fire() {
+		
 	}
 
-
 	
-	//GETTER
+	//SETTER
 	public String getName() {
 		return name;
 	}
-
+	
 	public int getStrength() {
 		return strength;
 	}
@@ -33,5 +30,4 @@ public class Storm {
 	}
 	
 	
-
 }
