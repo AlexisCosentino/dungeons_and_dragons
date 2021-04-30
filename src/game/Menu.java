@@ -1,109 +1,92 @@
 package game;
 
 import java.util.Scanner;
-
 import character.Character;
 import character.Warrior;
 import character.Wizard;
-import game.Dice;
+
 
 public class Menu {
 
-	Character player = null;
+	private Character player;
+	private Scanner in = new Scanner(System.in);
+	private String name;
+
 
 	public Menu(){
-		
+		this.player = null;
 	}
 	
-	public void launchMenu(){
-		System.out.println("Bienvenue dans le jeu Dungeons & Dragons !");
-		System.out.println("Tapez 'exit' pour quitter le jeu");	
-		System.out.println("Etes-vous prêt à jouer et pleurer du sang ? 'yes' / 'no'");
-		Scanner in = new Scanner(System.in);
-		String userChoice = in.nextLine();
-		if ("yes".equalsIgnoreCase(userChoice)) {
-
-			System.out.println("Magnifique !! Commencez par choisir votre personnage : 'magicien' / 'guerrier' ");
-			userChoice = in.nextLine();
-			if ("guerrier".equalsIgnoreCase(userChoice)) {
-				System.out.println("Quel sera votret petit nom de guerrier victime ?");
-				String userName = in.nextLine();
-
-				player = new Warrior(userName);
-
-				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
 
 
-			} else if ("magicien".equalsIgnoreCase(userChoice)) {
+	public void welcome() {
+		System.out.println("  |----------------------------------------------| ");
+		System.out.println("==|  Bienvenue dans le jeu Dungeons & Dragons !  |==");
+		System.out.println("  |----------------------------------------------|");
 
-				System.out.println("Quel sera votret petit nom de magicien victime ?");
-				String userName = in.nextLine();
+	}
 
-				player = new Wizard(userName);
+	public void menu(){
+		System.out.println("Tapez votre nom :");
+		name = in.nextLine();
+		System.out.println("Bonjour " + name + ", vous allez pleurer du sang aujourd'hui");
+		System.out.println("il ya 64 cases à parcourir. Certaines vous donneront de meilleurs armes/potion et d'autre des enemies à combattre.");
+		System.out.println("Tapez :");
+		System.out.println("1 -> Ceer votre personnage");
+		System.out.println("2 -> Quitter le jeu");
+		int choice = in.nextInt();
 
-				System.out.println("Vous avez choisi d'être un " + userChoice + ", votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
-
-			} else if ("exit".equalsIgnoreCase(userChoice)) {
-				exit();
-			} else {
-				launchMenu();
-			}
-			System.out.println("Le jeu est simple, il ya 64 cases à parcourir. Certaines vous donneront de meilleurs armes/potion et d'autre des enemies à combattre.");
-
-
-			///// JOUONS !! ////////////////
-
-			Board board = new Board();
-			Dice dice = new Dice();
-
-			while (player.getHealth() > 0 && board.getNbCase() < 64) {
-
-				System.out.println("Lancer le dé ? yes / no");
-				String play = in.nextLine();
-				if ("yes".equalsIgnoreCase(play)) {
-					int launchDice = dice.play();
-					board.setNbCase(board.getNbCase() + launchDice);
-					System.out.println("Vous avez joué " + launchDice + ", vous êtes sur la case " + board.getNbCase());
-
-				} else {
+			switch (choice){
+				case 1:
+					createChar();
+					break;
+				case 2:
 					exit();
-				}
+				default:
+					System.out.println("Choix non valide");
+					welcome();
 			}
-			if (player.getHealth() <= 0){
-				System.out.println("Vous avez perdu !!");
-
-			} else {
-				System.out.println("Vous avez gagné !!");
-				System.exit(0);
-			}
-
-
-
-		} else {
-			exit();
-		}
-
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	public void createChar(){
+		System.out.println("Que voulez-vous jouer :");
+		System.out.println("1 -> MAGICIEN (Santée faible, Attaque forte)");
+		System.out.println("2 -> GUERRIER (Santée forte, Attaque faible)");
+		System.out.println("3 -> Quitter le jeu");
+
+		int choice = in.nextInt();
+
+		switch (choice){
+			case 1:
+				player = new Wizard(name);
+				System.out.println("Vous avez choisi d'être un Magicien, votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
+				break;
+			case 2 :
+				player = new Warrior(name);
+				System.out.println("Vous avez choisi d'être un Gerrier, votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
+				break;
+			case 3:
+				exit();
+			default:
+				System.out.println("Choix non valide");
+				createChar();
+		}
+	}
+
+
 	public void exit() {
 		System.out.println("Bye bye petit lacheur..");
 		System.exit(0);
 	}
 	
-	
-	public void answer(String userChoice, String choice1, String choice2) {
-		if ("exit".equalsIgnoreCase(userChoice)) {
-			exit();
-		}else if (!choice1.equalsIgnoreCase(userChoice) || !choice2.equalsIgnoreCase(userChoice)) {
-			launchMenu();
-		}
+
+
+	public Character getPlayer() {
+		return player;
 	}
-	
+
+	public void setPlayer(Character player) {
+		this.player = player;
+	}
 	
 }

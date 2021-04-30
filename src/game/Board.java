@@ -1,8 +1,8 @@
 package game;
 
 public class Board {
-    int nbCase = 0;
-    int[] board = new int[63];
+    private int nbCase = 0;
+    private int[] board = new int[63];
 
     public Board(){
 
