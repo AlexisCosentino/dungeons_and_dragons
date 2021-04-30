@@ -9,6 +9,8 @@ public class Dice {
 
 	public void launchDice(){
 		Scanner in = new Scanner(System.in);
+		System.out.println("----------------------------------------------------------");
+
 		System.out.println("Lancer le dé ? 1 -> oui      2 -> Non je quitte le jeu");
 		int choice = in.nextInt();
 		switch (choice){

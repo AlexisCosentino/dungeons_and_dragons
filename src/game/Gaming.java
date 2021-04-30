@@ -14,7 +14,7 @@ public class Gaming {
 
 	}
 
-	public void launchGame() {
+	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
 
@@ -25,9 +25,11 @@ public class Gaming {
 				int launchDice = dice.play();
 				board.setNbCase(board.getNbCase() + launchDice);
 				System.out.println("Vous avez joué " + launchDice + ", vous êtes sur la case " + board.getNbCase());
+				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength());
 
 		}
-		if (menu.getPlayer().getHealth() <= 0){
+		if (menu.getPlayer().getHealth() <= 0) {
+
 			System.out.println("-----------------------");
 			System.out.println("|  Vous avez perdu !!  |");
 			System.out.println("-----------------------");
@@ -55,6 +57,12 @@ public class Gaming {
 		}
 	}
 
+	public class PersonnageHorsPlateauException extends Exception {
+
+		public PersonnageHorsPlateauException(String message) {
+			super(message);
+		}
+	}
 
 }
 
