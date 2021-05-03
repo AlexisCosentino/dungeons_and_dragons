@@ -1,7 +1,7 @@
 package potions;
 
 public class Elixir {
-		private String name = "Potion de vie standart";
+		private String name = "Potion de vie standard";
 		private int strength = 2;
 		
 		

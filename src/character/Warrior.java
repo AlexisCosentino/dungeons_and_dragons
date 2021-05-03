@@ -1,39 +1,27 @@
 package character;
 
+import weapons.Weapon;
 
 public class Warrior extends Character {
 	
 	//attributes
-	String weaponName = "";
-	int weaponStrength = 0;
-	
+	private Weapon weapon;
 
-	
-	public Warrior(String name) {
+
+
+	public Warrior(String name, Weapon weapon) {
 		super(name, 5, 5);
-	
-	}
-	
-	
-	//GETTER
-	
-	public String getWeaponName() {
-		return weaponName;
-	}
-	public int getWeaponStrength() {
-		return weaponStrength;
+		this.weapon = weapon;
 	}
 
-	
-	//SETTER
 
-	
-	public void setWeaponName(String weaponName) {
-		this.weaponName = weaponName;
-	}
 
-	public void setWeaponStrength(int weaponStrength) {
-		this.weaponStrength = weaponStrength;
+	@Override
+	public String getLeftHand() {
+		if (weapon != null){
+			return weapon.getWeaponName();
+		} else {
+			return "Pas d'arme";
+		}
 	}
-	
 }

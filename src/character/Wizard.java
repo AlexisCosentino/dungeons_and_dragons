@@ -1,36 +1,25 @@
 package character;
 
+import powers.Power;
+
 public class Wizard extends Character {
-	String powerName = "";
-	int powerStrength = 0;
+	Power power;
 
 
-
-	
 	public Wizard(String name) {
 		super(name, 3, 8);
 	}
-	
-	
-	//GETTER
-	public String getPowerName() {
-		return powerName;
+
+
+	@Override
+	public String getLeftHand() {
+		if (power != null){
+			return power.getPowerName();
+		} else {
+			return "Pas de pouvoir";
+		}
 	}
-	
-	public int getPowerStrength() {
-		return powerStrength;
-	}
-	
-	
-	//SETTER
-	
-	public void setPowerName(String a) {
-		powerName = a;
-	}
-	
-	public void setPowerStrength(int a) {
-		powerStrength = a;
-	}
-	
+
+
 
 }

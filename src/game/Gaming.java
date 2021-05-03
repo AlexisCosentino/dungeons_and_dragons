@@ -1,6 +1,7 @@
 package game;
 
 
+import exceptions.PersonnageHorsPlateauException;
 import java.util.Scanner;
 
 public class Gaming {
@@ -11,22 +12,30 @@ public class Gaming {
 
 	public Gaming(Menu menu){
 		this.menu = menu;
-
 	}
 
 	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
-
-
 		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < 64) {
 			dice.launchDice();
 
 				int launchDice = dice.play();
-				board.setNbCase(board.getNbCase() + launchDice);
-				System.out.println("Vous avez joué " + launchDice + ", vous êtes sur la case " + board.getNbCase());
-				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength());
 
+			System.out.println();
+			System.out.print("Vous avez joué " + launchDice);
+
+				try {
+					board.setNbCase(board.getNbCase() + launchDice);
+					if (board.getNbCase() > board.getBoard().length) {
+						throw new PersonnageHorsPlateauException("erreur");
+					}
+				} catch (PersonnageHorsPlateauException e) {
+					board.setNbCase(board.getBoard().length);
+				}
+				System.out.println(", vous êtes sur la case " + board.getNbCase());
+				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength());
+			System.out.println();
 		}
 		if (menu.getPlayer().getHealth() <= 0) {
 
@@ -57,12 +66,7 @@ public class Gaming {
 		}
 	}
 
-	public class PersonnageHorsPlateauException extends Exception {
 
-		public PersonnageHorsPlateauException(String message) {
-			super(message);
-		}
-	}
 
 }
 

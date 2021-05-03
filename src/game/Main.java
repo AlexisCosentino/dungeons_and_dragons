@@ -1,6 +1,6 @@
 package game;
 
-////////////////// ICI SE TROUVE LE POINT D ENTREE DU JEU
+////////////////// ICI SE TROUVE LE POINT D ENTREE DU JEU /////////////////////////////
 
 public class Main {
 

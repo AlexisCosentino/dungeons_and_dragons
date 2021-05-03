@@ -4,17 +4,20 @@ import java.util.Scanner;
 import character.Character;
 import character.Warrior;
 import character.Wizard;
+import weapons.Weapon;
 
 
 public class Menu {
 
 	private Character player;
+	private Weapon weapon;
 	private Scanner in = new Scanner(System.in);
 	private String name;
 
 
 	public Menu(){
 		this.player = null;
+		this.weapon = null;
 	}
 	
 
@@ -23,7 +26,6 @@ public class Menu {
 		System.out.println("  |----------------------------------------------| ");
 		System.out.println("==|  Bienvenue dans le jeu Dungeons & Dragons !  |==");
 		System.out.println("  |----------------------------------------------|");
-
 	}
 
 	public void menu(){
@@ -63,11 +65,13 @@ public class Menu {
 		switch (choice){
 			case 1:
 				player = new Wizard(name);
-				System.out.println("Vous avez choisi d'etre un Magicien, votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
+				System.out.println("Vous avez choisi d'etre un Magicien, NOM : " + player.getName() + ", ATTAQUE : " + player.getStrength() + " et SANTEE : " + player.getHealth());
+				System.out.println("ARME = " + player.getLeftHand());
 				break;
 			case 2 :
-				player = new Warrior(name);
-				System.out.println("Vous avez choisi d'etre un Gerrier, votre nom sera : " + player.getName() + ", votre attaque sera de : " + player.getStrength() + " et votre santée de " + player.getHealth());
+				player = new Warrior(name, weapon);
+				System.out.println("Vous avez choisi d'etre un Guerrier, NOM : " + player.getName() + ", ATTAQUE : " + player.getStrength() + " et SANTEE : " + player.getHealth());
+				System.out.println("ARME = " + player.getLeftHand());
 				break;
 			case 3:
 				exit();

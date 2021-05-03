@@ -2,7 +2,7 @@ package character;
 
 abstract public class Character {
 	
-	//attributes
+	//attributes;;
 	private String name = "default";
 	private int health = 5;
 	private int strength = 5;
@@ -14,6 +14,8 @@ abstract public class Character {
 		this.health = health;
 		this.strength = strength;
 	}
+
+	public abstract String getLeftHand();
 
 	public String getName() {
 		return name;
@@ -46,5 +48,4 @@ abstract public class Character {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	
 }
