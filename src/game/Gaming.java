@@ -34,7 +34,7 @@ public class Gaming {
 					board.setNbCase(board.getBoard().length);
 				}
 				System.out.println(", vous êtes sur la case " + board.getNbCase());
-				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength());
+				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() +", ARME : " + menu.getPlayer().getLeftHand());
 			System.out.println();
 		}
 		if (menu.getPlayer().getHealth() <= 0) {

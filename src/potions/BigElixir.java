@@ -1,33 +1,11 @@
 package potions;
 
-public class BigElixir {
-	private String name = "Grande potion de vie";
-	private int strength = 5;
+public class BigElixir extends Potion {
 	
 	public BigElixir() {
+		super("Grande potion de vie", 5);
 		
 	}
-
-	//GETTER
-	public String getName() {
-		return name;
-	}
-
-	public int getStrength() {
-		return strength;
-	}
-	
-	
-	//SETTER
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public void setStrength(int strength) {
-		this.strength = strength;
-	}
-	
 	
 	
 }
