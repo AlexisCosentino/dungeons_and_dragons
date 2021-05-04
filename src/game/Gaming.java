@@ -14,6 +14,7 @@ public class Gaming {
 		this.menu = menu;
 	}
 
+/*
 	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
@@ -24,7 +25,6 @@ public class Gaming {
 
 			System.out.println();
 			System.out.print("Vous avez joué " + launchDice);
-
 				try {
 					board.setNbCase(board.getNbCase() + launchDice);
 					if (board.getNbCase() > board.getBoard().length) {
@@ -50,6 +50,47 @@ public class Gaming {
 
 		}
 	}
+
+
+ */
+	public void launchGame(){
+		Board board = new Board();
+		Dice dice = new Dice();
+		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListe().size()) {
+			dice.launchDice();
+
+			int launchDice = 1;
+
+			System.out.println();
+			System.out.print("Vous avez joué " + launchDice);
+			try {
+				board.setNbCase(board.getNbCase() + launchDice);
+				if (board.getNbCase() > board.getListe().size()) {
+					throw new PersonnageHorsPlateauException("erreur");
+				}
+			} catch (PersonnageHorsPlateauException e) {
+				board.setNbCase(board.getListe().size());
+			}
+			System.out.println(", vous êtes sur la case " + board.getNbCase());
+			System.out.println(board.getListe().get(board.getNbCase()).toString());
+			System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() +", ARME : " + menu.getPlayer().getLeftHand());
+			System.out.println();
+		}
+		if (menu.getPlayer().getHealth() <= 0) {
+
+			System.out.println("-----------------------");
+			System.out.println("|  Vous avez perdu !!  |");
+			System.out.println("-----------------------");
+
+		} else {
+			System.out.println("-----------------------");
+			System.out.println("|  Vous avez gagné !!  |");
+			System.out.println("-----------------------");
+
+		}
+	}
+
+
 
 	public void replay(){
 		System.out.println("Voulez vous rejouer ?");

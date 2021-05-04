@@ -9,6 +9,12 @@ abstract public class Weapon {
         this.weaponStrength = strength;
     }
 
+    @Override
+    public String toString() {
+        return "Vous êtes tombé sur : " + weaponName +
+                ", Force =" + weaponStrength;
+    }
+
     public String getWeaponName() {
         return weaponName;
     }

@@ -3,7 +3,7 @@ package enemies;
 public class Sorcier extends Enemies{
 
 	public Sorcier() {
-		super(9, 2);
+		super("Sorcier", 9, 2);
 	}
 	
 }

@@ -9,6 +9,12 @@ public abstract class Potion {
         this.strength = strength;
     }
 
+    @Override
+    public String toString() {
+        return "Vous êtes tombé sur : " + name +
+                ", Force =" + strength;
+    }
+
     public String getName() {
         return name;
     }

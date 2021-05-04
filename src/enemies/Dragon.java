@@ -4,7 +4,7 @@ public class Dragon extends Enemies {
 
 	
 	public Dragon() {
-		super(15, 4); 
+		super("Dragon", 15, 4);
 		
 	}
 

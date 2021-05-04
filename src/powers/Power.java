@@ -9,6 +9,14 @@ abstract public class Power {
         this.powerStrength = strength;
     }
 
+
+    @Override
+    public String toString() {
+        return "Vous êtes tombé sur : " + powerName +
+                ", Force =" + powerStrength;
+    }
+
+
     public String getPowerName() {
         return powerName;
     }
