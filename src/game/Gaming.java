@@ -1,6 +1,7 @@
 package game;
 
 
+import cases.Case;
 import exceptions.PersonnageHorsPlateauException;
 import java.util.Scanner;
 
@@ -56,10 +57,10 @@ public class Gaming {
 	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
-		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListe().size()) {
+		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() <= board.getListe().size()) {
 			dice.launchDice();
 
-			int launchDice = 1;
+			int launchDice = dice.play();
 
 			System.out.println();
 			System.out.print("Vous avez joué " + launchDice);
@@ -71,10 +72,16 @@ public class Gaming {
 			} catch (PersonnageHorsPlateauException e) {
 				board.setNbCase(board.getListe().size());
 			}
-			System.out.println(", vous êtes sur la case " + board.getNbCase());
-			System.out.println(board.getListe().get(board.getNbCase()).toString());
-			System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() +", ARME : " + menu.getPlayer().getLeftHand());
-			System.out.println();
+			if ( board.getNbCase() < 64) {
+				Case currentCase = board.getListe().get(board.getNbCase());
+
+				currentCase.interaction(menu.getPlayer());
+				System.out.println(", vous êtes sur la case " + board.getNbCase());
+				System.out.println(board.getListe().get(board.getNbCase()).toString());
+				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());
+				System.out.println();
+
+			}
 		}
 		if (menu.getPlayer().getHealth() <= 0) {
 
@@ -89,6 +96,7 @@ public class Gaming {
 
 		}
 	}
+
 
 
 

@@ -1,6 +1,7 @@
 package cases;
 
 import potions.Potion;
+import character.Character;
 
 public class PotionCase  extends Case {
     private Potion potion;
@@ -14,5 +15,10 @@ public class PotionCase  extends Case {
     @Override
     public String toString() {
         return sentence;
+    }
+
+    @Override
+    public void interaction(Character player) {
+
     }
 }

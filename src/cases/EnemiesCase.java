@@ -1,6 +1,8 @@
 package cases;
 
 import enemies.Enemies;
+import character.Character;
+
 
 public class EnemiesCase  extends Case  {
     private Enemies enemies;
@@ -14,5 +16,10 @@ public class EnemiesCase  extends Case  {
     @Override
     public String toString() {
         return sentence;
+    }
+
+    @Override
+    public void interaction(Character player) {
+
     }
 }
