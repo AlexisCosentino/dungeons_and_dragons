@@ -57,11 +57,10 @@ public class Gaming {
 	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
-		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() <= board.getListe().size()) {
+		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListe().size()) {
 			dice.launchDice();
 
 			int launchDice = dice.play();
-
 			System.out.println();
 			System.out.print("Vous avez joué " + launchDice);
 			try {
@@ -72,12 +71,12 @@ public class Gaming {
 			} catch (PersonnageHorsPlateauException e) {
 				board.setNbCase(board.getListe().size());
 			}
-			if ( board.getNbCase() < 64) {
+			if ( board.getNbCase() < board.getListe().size()) {
 				Case currentCase = board.getListe().get(board.getNbCase());
 
 				currentCase.interaction(menu.getPlayer());
 				System.out.println(", vous êtes sur la case " + board.getNbCase());
-				System.out.println(board.getListe().get(board.getNbCase()).toString());
+				System.out.println(currentCase.toString());
 				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());
 				System.out.println();
 

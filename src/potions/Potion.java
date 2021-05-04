@@ -11,8 +11,8 @@ public abstract class Potion {
 
     @Override
     public String toString() {
-        return "Vous êtes tombé sur : " + name +
-                ", Force =" + strength;
+        return "POTION :) ->  " + name +
+                ", VIE = +" + strength;
     }
 
     public String getName() {

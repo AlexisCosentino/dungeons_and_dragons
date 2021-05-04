@@ -1,13 +1,12 @@
 package cases;
 
-import character.Warrior;
+import character.*;
 import character.Character;
 import powers.Power;
 import weapons.Weapon;
 
 public class WeaponsCase extends Case  {
     private Weapon weapon;
-    private Power power;
     private String sentence;
 
     public WeaponsCase(Weapon weapon){
@@ -15,10 +14,6 @@ public class WeaponsCase extends Case  {
         this.sentence = weapon.toString();
     }
 
-    public WeaponsCase(Power power){
-        this.power = power;
-        this.sentence = power.toString();
-    }
 
     @Override
     public String toString() {
@@ -28,6 +23,14 @@ public class WeaponsCase extends Case  {
     @Override
     public void interaction(Character player) {
         if (player instanceof Warrior){
+
+            if (player.getLeftHand() == null) {
+                ((Warrior) player).setWeapon(weapon);
+                player.setStrength(player.getStrength() + weapon.getWeaponStrength());
+            } else if (player.getLeftHand() != weapon.getWeaponName()){
+                ((Warrior) player).setWeapon(weapon);
+                player.setStrength(5 + weapon.getWeaponStrength());
+            }
 
         }
     }

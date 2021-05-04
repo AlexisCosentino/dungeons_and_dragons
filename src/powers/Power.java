@@ -12,7 +12,7 @@ abstract public class Power {
 
     @Override
     public String toString() {
-        return "Vous êtes tombé sur : " + powerName +
+        return "POUVOIR MAGIQUE ->  " + powerName +
                 ", Force =" + powerStrength;
     }
 

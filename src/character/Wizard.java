@@ -1,14 +1,18 @@
 package character;
 
 import powers.Power;
+import weapons.Weapon;
 
 public class Wizard extends Character {
-	Power power;
+	private Power power;
 
 
-	public Wizard(String name) {
+
+	public Wizard(String name, Power power) {
 		super(name, 3, 8);
+		this.power = power;
 	}
+
 
 
 	@Override
@@ -20,6 +24,12 @@ public class Wizard extends Character {
 		}
 	}
 
+	public Power getPower() {
+		return power;
+	}
 
+	public void setPower(Power power) {
+		this.power = power;
+	}
 
 }

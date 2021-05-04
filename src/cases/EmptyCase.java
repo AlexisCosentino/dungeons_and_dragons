@@ -6,7 +6,7 @@ public class EmptyCase extends Case {
     private String sentence = "Vous êtes tombé sur une case vide, ouf !";
 
     public EmptyCase(){
-        this.sentence = "Vous êtes tombé sur une case vide, ouf !";
+        this.sentence = "Il n'y a rien a craindre par ici....";
     }
 
     @Override

@@ -20,6 +20,9 @@ public class EnemiesCase  extends Case  {
 
     @Override
     public void interaction(Character player) {
-
+        if (player.getStrength() >= enemies.getHealth()){
+        } else {
+            player.setHealth(player.getHealth() - enemies.getStrength());
+        }
     }
 }

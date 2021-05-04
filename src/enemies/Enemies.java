@@ -16,7 +16,7 @@ abstract public class Enemies {
 
 	@Override
 	public String toString() {
-		return "Vous êtes tombé sur un " + name +
+		return "ENEMIE !!! ->  " + name +
 				", Santée =" + health +
 				", Force =" + strength;
 	}

@@ -19,6 +19,6 @@ public class PotionCase  extends Case {
 
     @Override
     public void interaction(Character player) {
-
+        player.setHealth(player.getHealth() + potion.getStrength());
     }
 }

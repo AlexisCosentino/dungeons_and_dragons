@@ -24,4 +24,12 @@ public class Warrior extends Character {
 			return "Pas d'arme";
 		}
 	}
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
 }

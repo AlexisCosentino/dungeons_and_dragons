@@ -29,14 +29,14 @@ public class Board {
 
     public Board(){
         liste.add( new EmptyCase());
-        liste.add( new WeaponsCase(light));      //1
+        liste.add( new PowerCase(light));      //1
         liste.add(new WeaponsCase(mace));         //2
         liste.add(new EnemiesCase(gobelin));     //3
-        liste.add( new WeaponsCase(light));      //4
+        liste.add( new PowerCase(light));      //4
         liste.add(new WeaponsCase(mace));          //5
         liste.add(new EnemiesCase(gobelin));      //6
         liste.add(new PotionCase(elixir));      //7
-        liste.add( new WeaponsCase(light));      //8
+        liste.add( new PowerCase(light));      //8
         liste.add(new EnemiesCase(gobelin));      //9
         liste.add(new EnemiesCase(sorcier));      //10
         liste.add(new WeaponsCase(mace));       //11
@@ -45,13 +45,13 @@ public class Board {
         liste.add( new EmptyCase());              //14
         liste.add(new EnemiesCase(gobelin));      //15
         liste.add( new EmptyCase());            //16
-        liste.add( new WeaponsCase(light));      //17
+        liste.add( new PowerCase(light));      //17
         liste.add(new EnemiesCase(gobelin));      //18
         liste.add(new WeaponsCase(sword));      //19
         liste.add(new EnemiesCase(sorcier));      //20
         liste.add(new EnemiesCase(gobelin));      //21
         liste.add(new WeaponsCase(mace));          //22
-        liste.add( new WeaponsCase(light));      //23
+        liste.add( new PowerCase(light));      //23
         liste.add(new EnemiesCase(gobelin));      //24
         liste.add(new EnemiesCase(sorcier));      //25
         liste.add(new WeaponsCase(sword));      //26
@@ -76,8 +76,8 @@ public class Board {
         liste.add(new EnemiesCase(dragon));      //45
         liste.add( new EmptyCase());           //46
         liste.add(new EnemiesCase(sorcier));      //47
-        liste.add(new WeaponsCase(fire));      //48
-        liste.add(new WeaponsCase(fire));      //49
+        liste.add(new PowerCase(fire));      //48
+        liste.add(new PowerCase(fire));      //49
         liste.add( new EmptyCase());           //50
         liste.add( new EmptyCase());           //51
         liste.add(new EnemiesCase(dragon));      //52
@@ -92,8 +92,6 @@ public class Board {
         liste.add( new EmptyCase());             //61
         liste.add(new EnemiesCase(dragon));      //62
         liste.add( new EmptyCase());             //63
-        liste.add( new EmptyCase());             //64
-
     }
 
     public List<Case> getListe() {

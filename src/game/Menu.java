@@ -4,6 +4,7 @@ import java.util.Scanner;
 import character.Character;
 import character.Warrior;
 import character.Wizard;
+import powers.Power;
 import weapons.Weapon;
 
 
@@ -11,6 +12,7 @@ public class Menu {
 
 	private Character player;
 	private Weapon weapon;
+	private Power power;
 	private Scanner in = new Scanner(System.in);
 	private String name;
 
@@ -18,6 +20,7 @@ public class Menu {
 	public Menu(){
 		this.player = null;
 		this.weapon = null;
+		this.power = null;
 	}
 	
 
@@ -64,7 +67,7 @@ public class Menu {
 
 		switch (choice){
 			case 1:
-				player = new Wizard(name);
+				player = new Wizard(name, power);
 				System.out.println("Vous avez choisi d'etre un Magicien, NOM : " + player.getName() + ", ATTAQUE : " + player.getStrength() + " et SANTEE : " + player.getHealth());
 				System.out.println("ARME = " + player.getLeftHand());
 				break;

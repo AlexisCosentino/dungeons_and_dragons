@@ -11,7 +11,7 @@ abstract public class Weapon {
 
     @Override
     public String toString() {
-        return "Vous êtes tombé sur : " + weaponName +
+        return "ARME DE COMBAT -> " + weaponName +
                 ", Force =" + weaponStrength;
     }
 
