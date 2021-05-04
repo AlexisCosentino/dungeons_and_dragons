@@ -15,67 +15,30 @@ public class Gaming {
 		this.menu = menu;
 	}
 
-/*
+
 	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
-		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < 64) {
+		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListeSize()) {
 			dice.launchDice();
 
-				int launchDice = dice.play();
-
-			System.out.println();
-			System.out.print("Vous avez joué " + launchDice);
-				try {
-					board.setNbCase(board.getNbCase() + launchDice);
-					if (board.getNbCase() > board.getBoard().length) {
-						throw new PersonnageHorsPlateauException("erreur");
-					}
-				} catch (PersonnageHorsPlateauException e) {
-					board.setNbCase(board.getBoard().length);
-				}
-				System.out.println(", vous êtes sur la case " + board.getNbCase());
-				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() +", ARME : " + menu.getPlayer().getLeftHand());
-			System.out.println();
-		}
-		if (menu.getPlayer().getHealth() <= 0) {
-
-			System.out.println("-----------------------");
-			System.out.println("|  Vous avez perdu !!  |");
-			System.out.println("-----------------------");
-
-		} else {
-			System.out.println("-----------------------");
-			System.out.println("|  Vous avez gagné !!  |");
-			System.out.println("-----------------------");
-
-		}
-	}
-
-
- */
-	public void launchGame(){
-		Board board = new Board();
-		Dice dice = new Dice();
-		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListe().size()) {
-			dice.launchDice();
-
-			int launchDice = dice.play();
+			int launchDice = 1;        //dice.play();
 			System.out.println();
 			System.out.print("Vous avez joué " + launchDice);
 			try {
 				board.setNbCase(board.getNbCase() + launchDice);
-				if (board.getNbCase() > board.getListe().size()) {
+				if (board.getNbCase() > board.getListeSize()) {
 					throw new PersonnageHorsPlateauException("erreur");
 				}
 			} catch (PersonnageHorsPlateauException e) {
-				board.setNbCase(board.getListe().size());
+				board.setNbCase(board.getListeSize());
 			}
-			if ( board.getNbCase() < board.getListe().size()) {
-				Case currentCase = board.getListe().get(board.getNbCase());
 
+			System.out.println(", vous êtes sur la case " + board.getNbCase());
+
+			if ( board.getNbCase() < board.getListeSize()) {
+				Case currentCase = board.getListe().get(board.getNbCase());
 				currentCase.interaction(menu.getPlayer());
-				System.out.println(", vous êtes sur la case " + board.getNbCase());
 				System.out.println(currentCase.toString());
 				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());
 				System.out.println();

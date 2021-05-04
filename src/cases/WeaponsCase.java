@@ -2,6 +2,7 @@ package cases;
 
 import character.*;
 import character.Character;
+import exceptions.MaxStrengthException;
 import powers.Power;
 import weapons.Weapon;
 
@@ -31,8 +32,16 @@ public class WeaponsCase extends Case  {
                 ((Warrior) player).setWeapon(weapon);
                 player.setStrength(5 + weapon.getWeaponStrength());
             }
-
+            try {
+                if (player.getStrength() > 10 ) {
+                    throw new MaxStrengthException();
+                }
+            } catch (MaxStrengthException e) {
+                player.setStrength(10);
+            }
         }
+
+
     }
 
 }

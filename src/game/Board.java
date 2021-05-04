@@ -98,6 +98,10 @@ public class Board {
         return liste;
     }
 
+    public int getListeSize(){
+        return liste.size();
+    }
+
     public void setListe(List liste) {
         this.liste = liste;
     }
