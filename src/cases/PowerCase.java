@@ -2,7 +2,6 @@ package cases;
 
 import character.Character;
 import character.Wizard;
-import exceptions.MaxHealthException;
 import exceptions.MaxStrengthException;
 import powers.Power;
 
@@ -32,6 +31,7 @@ public class PowerCase extends Case{
                 player.setStrength(8 + power.getPowerStrength());
             }
 
+            //EXCEPTION FOR MAX STRENGTH /////////////////// EVEN ITS NOT REALLY POSSIBLE WITHOUT CHEAT
             try {
                 if (player.getStrength() > 15 ) {
                     throw new MaxStrengthException();

@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Board {
     private int nbCase = 0;
-    private int[] board = new int[64];
     private List<Case> liste = new ArrayList<Case>();
     private Enemies gobelin = new Gobelin();
     private Enemies sorcier = new Sorcier();
@@ -87,12 +86,18 @@ public class Board {
         liste.add(new EnemiesCase(dragon));      //56
         liste.add( new EmptyCase());             //57
         liste.add( new EmptyCase());              //58
-        liste.add( new EmptyCase());;            //59
+        liste.add( new EmptyCase());            //59
         liste.add( new EmptyCase());             //60
         liste.add( new EmptyCase());             //61
         liste.add(new EnemiesCase(dragon));      //62
         liste.add( new EmptyCase());             //63
     }
+
+
+    public static void shuffle(List<Case> list){
+
+    };
+
 
     public List<Case> getListe() {
         return liste;
@@ -116,13 +121,4 @@ public class Board {
         this.nbCase = nbCase;
     }
 
-    public int[] getBoard() {
-
-        return board;
-    }
-
-    public void setBoard(int[] board) {
-
-        this.board = board;
-    }
 }

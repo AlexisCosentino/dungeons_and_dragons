@@ -3,6 +3,9 @@ package game;
 
 import cases.Case;
 import exceptions.PersonnageHorsPlateauException;
+
+import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Gaming {
@@ -19,10 +22,13 @@ public class Gaming {
 	public void launchGame(){
 		Board board = new Board();
 		Dice dice = new Dice();
+
+		Collections.shuffle(board.getListe(), new Random());	//RANDOM ARRAYLIST
+
 		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListeSize()) {
 			dice.launchDice();
 
-			int launchDice = 1;        //dice.play();
+			int launchDice = dice.play();
 			System.out.println();
 			System.out.print("Vous avez joué " + launchDice);
 			try {
