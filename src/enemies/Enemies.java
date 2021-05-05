@@ -36,4 +36,8 @@ abstract public class Enemies {
 	public void setStrength(int strength) {
 		this.strength = strength;
 	}
+
+    public String toStringFight() {
+		return name + ", santée : = " + health + ", Force = " + strength;
+    }
 }

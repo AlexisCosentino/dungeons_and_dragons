@@ -2,6 +2,7 @@ package game;
 
 
 import cases.Case;
+import cases.EnemiesCase;
 import exceptions.PersonnageHorsPlateauException;
 
 import java.util.Collections;
@@ -42,10 +43,37 @@ public class Gaming {
 
 			System.out.println(", vous êtes sur la case " + board.getNbCase());
 
-			if ( board.getNbCase() < board.getListeSize()) {
+			if ( board.getNbCase() < board.getListeSize()) {							//Si mon index est inférieur a la taille du plateau
 				Case currentCase = board.getListe().get(board.getNbCase());
-				currentCase.interaction(menu.getPlayer());
-				System.out.println(currentCase.toString());
+
+				System.out.println(currentCase.toString());								//J'annonce la case
+
+				currentCase.interaction(menu.getPlayer());								//Je fais l'intéraction
+
+				int choice = 0;
+				if (currentCase instanceof EnemiesCase){								//Si c'est une case enemie
+					while (((EnemiesCase) currentCase).getEnemies().getHealth() > 0 && choice != 2 && menu.getPlayer().getHealth() > 0) {		//Tant que l'énemie est tjr en vie, que je veux me battre et que j'ai de la vie
+						System.out.println(((EnemiesCase) currentCase).getEnemies().toStringFight());	//J'annonce l'état de l'énemie
+						System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());		//Etat du joueur
+
+						System.out.println("-------------------------");				//Je propose de se battre encore ou de partir
+						System.out.println("1 -> SE BATTRE");
+						System.out.println("2 -> FUIR TEL UN LACHE");
+						System.out.println("-------------------------");
+						choice = in.nextInt();
+						switch (choice) {
+							case 1:
+								currentCase.interaction(menu.getPlayer());				//Il se bat encore
+								break;
+							case 2:
+								int goBack = dice.play();
+								board.setNbCase(board.getNbCase() - goBack);			//il recule de quelques cases
+								break;
+						}
+					}
+				}
+
+
 				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());
 				System.out.println();
 
