@@ -48,4 +48,8 @@ abstract public class Character {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
+	public String toString() {
+		return name + " -> VIE : " + health + ", FORCE : " + strength + ", SKILL : " + getLeftHand();
+	}
 }

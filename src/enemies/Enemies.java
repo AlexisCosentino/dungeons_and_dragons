@@ -17,8 +17,12 @@ abstract public class Enemies {
 	@Override
 	public String toString() {
 		return "ENEMIE !!! ->  " + name +
-				", Santée =" + health +
-				", Force =" + strength;
+				", VIE =" + health +
+				", FORCE =" + strength;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public int getHealth() {
@@ -38,6 +42,6 @@ abstract public class Enemies {
 	}
 
     public String toStringFight() {
-		return name + ", santée : = " + health + ", Force = " + strength;
+		return name + " ->  VIE : = " + health + ", FORCE = " + strength;
     }
 }

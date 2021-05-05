@@ -39,6 +39,8 @@ public class PowerCase extends Case{
             } catch (MaxStrengthException e) {
                 player.setStrength(15);
             }
+        } else {
+            System.out.println("==> Un gerrier crache sur la magie");
         }
 
     }

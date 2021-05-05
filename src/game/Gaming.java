@@ -53,10 +53,12 @@ public class Gaming {
 				int choice = 0;
 				if (currentCase instanceof EnemiesCase){								//Si c'est une case enemie
 					while (((EnemiesCase) currentCase).getEnemies().getHealth() > 0 && choice != 2 && menu.getPlayer().getHealth() > 0) {		//Tant que l'énemie est tjr en vie, que je veux me battre et que j'ai de la vie
-						System.out.println(((EnemiesCase) currentCase).getEnemies().toStringFight());	//J'annonce l'état de l'énemie
-						System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());		//Etat du joueur
-
-						System.out.println("-------------------------");				//Je propose de se battre encore ou de partir
+						System.out.println(menu.getPlayer().getName() + " -> a perdu -" + ((EnemiesCase) currentCase).getEnemies().getStrength() + " de vie");
+						System.out.println(((EnemiesCase) currentCase).getEnemies().getName() + " -> a perdu -" + menu.getPlayer().getStrength() + " de vie");
+						System.out.println();
+						System.out.println(((EnemiesCase) currentCase).getEnemies().toStringFight());					//J'annonce l'état de l'énemie
+						System.out.println(menu.getPlayer().toString());												//Etat du joueur
+						System.out.println("-------------------------");												//Je propose de se battre encore ou de partir
 						System.out.println("1 -> SE BATTRE");
 						System.out.println("2 -> FUIR TEL UN LACHE");
 						System.out.println("-------------------------");
@@ -74,9 +76,8 @@ public class Gaming {
 				}
 
 
-				System.out.println("VIE : " + menu.getPlayer().getHealth() + ", FORCE : " + menu.getPlayer().getStrength() + ", ARME : " + menu.getPlayer().getLeftHand());
+				System.out.println(menu.getPlayer().toString());
 				System.out.println();
-
 			}
 		}
 		if (menu.getPlayer().getHealth() <= 0) {
@@ -103,7 +104,13 @@ public class Gaming {
 		int choice = in.nextInt();
 		switch (choice){
 			case 1:
-				launchGame();
+				Menu menu = new Menu();
+				menu.welcome();									//JE LANCE LE MENU POUR LA CREATION DU PERSONNAGE
+				menu.menu();
+				Gaming gaming = new Gaming(menu);				//JE LANCE LA CONSTRUCTION DU JEU AVEC MENU EN PARAM
+				gaming.launchGame();							//JE LANCE LE JEUX
+				gaming.replay();
+
 				break;
 			case 2:
 				System.out.println("C'est CIAO mon gars !");

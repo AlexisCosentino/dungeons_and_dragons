@@ -12,8 +12,8 @@ abstract public class Power {
 
     @Override
     public String toString() {
-        return "POUVOIR MAGIQUE ->  " + powerName +
-                ", Force =" + powerStrength;
+        return "POUVOIR DE MAGICIEN ->  " + powerName +
+                ", FORCE = +" + powerStrength;
     }
 
 

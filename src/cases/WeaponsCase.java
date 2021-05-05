@@ -32,7 +32,7 @@ public class WeaponsCase extends Case  {
                 player.setStrength(5 + weapon.getWeaponStrength());
             }
 
-            //EXCEPTION FOR MAX STRENGTH /////////////////// EVEN ITS NOT REALLY POSSIBLE WITHOUT CHEAT
+            //// EXCEPTION FOR MAX STRENGTH /////////////////// EVEN ITS NOT REALLY POSSIBLE WITHOUT CHEAT
 
             try {
                 if (player.getStrength() > 10 ) {
@@ -41,6 +41,8 @@ public class WeaponsCase extends Case  {
             } catch (MaxStrengthException e) {
                 player.setStrength(10);
             }
+        } else {
+            System.out.println("==> Un Magicien n'accepte pas des armes de PD");
         }
 
 
