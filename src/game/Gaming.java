@@ -53,8 +53,6 @@ public class Gaming {
 				int choice = 0;
 				if (currentCase instanceof EnemiesCase){								//Si c'est une case enemie
 					while (((EnemiesCase) currentCase).getEnemies().getHealth() > 0 && choice != 2 && menu.getPlayer().getHealth() > 0) {		//Tant que l'énemie est tjr en vie, que je veux me battre et que j'ai de la vie
-						System.out.println(menu.getPlayer().getName() + " -> a perdu -" + ((EnemiesCase) currentCase).getEnemies().getStrength() + " de vie");
-						System.out.println(((EnemiesCase) currentCase).getEnemies().getName() + " -> a perdu -" + menu.getPlayer().getStrength() + " de vie");
 						System.out.println();
 						System.out.println(((EnemiesCase) currentCase).getEnemies().toStringFight());					//J'annonce l'état de l'énemie
 						System.out.println(menu.getPlayer().toString());												//Etat du joueur

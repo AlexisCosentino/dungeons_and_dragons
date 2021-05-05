@@ -29,9 +29,14 @@ public class EnemiesCase  extends Case  {
     public void interaction(Character player) {
         if (player.getStrength() >= enemies.getHealth()){
             enemies.setHealth(0);
+            System.out.println(player.getName() + " -> a perdu 0 de vie");
+            System.out.println(enemies.getName() + " -> a perdu -" + player.getStrength() + " de vie");
+            System.out.println("Le " + enemies.getName() + " est MORT.");
         } else {
             enemies.setHealth(enemies.getHealth() - player.getStrength());
             player.setHealth(player.getHealth() - enemies.getStrength());
+            System.out.println(player.getName() + " -> a perdu -" +enemies.getStrength()+" de vie");
+            System.out.println(enemies.getName() + " -> a perdu -" + player.getStrength() + " de vie");
         }
     }
 

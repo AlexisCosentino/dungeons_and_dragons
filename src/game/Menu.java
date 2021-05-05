@@ -68,13 +68,11 @@ public class Menu {
 		switch (choice){
 			case 1:
 				player = new Wizard(name, power);
-				System.out.println("Vous avez choisi d'etre un Magicien, NOM : " + player.getName() + ", ATTAQUE : " + player.getStrength() + " et SANTEE : " + player.getHealth());
-				System.out.println("ARME = " + player.getLeftHand());
+				System.out.println("Vous avez choisi d'etre un Magicien, NOM : " + player.getName() + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
 				break;
 			case 2 :
 				player = new Warrior(name, weapon);
-				System.out.println("Vous avez choisi d'etre un Guerrier, NOM : " + player.getName() + ", ATTAQUE : " + player.getStrength() + " et SANTEE : " + player.getHealth());
-				System.out.println("ARME = " + player.getLeftHand());
+				System.out.println("Vous avez choisi d'etre un Guerrier, NOM : " + player.getName() + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
 				break;
 			case 3:
 				exit();
