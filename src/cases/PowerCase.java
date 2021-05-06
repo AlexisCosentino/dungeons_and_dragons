@@ -1,6 +1,7 @@
 package cases;
 
 import character.Character;
+import character.Jcvd;
 import character.Wizard;
 import exceptions.MaxStrengthException;
 import powers.Power;
@@ -38,6 +39,14 @@ public class PowerCase extends Case{
                 }
             } catch (MaxStrengthException e) {
                 player.setStrength(15);
+            }
+        } else if (player instanceof Jcvd){
+            if (player.getLeftHand() == null) {
+                ((Jcvd) player).setPower(power);
+                player.setStrength(player.getStrength() + power.getPowerStrength());
+            } else if (player.getLeftHand() != power.getPowerName()){
+                ((Jcvd) player).setPower(power);
+                player.setStrength(8 + power.getPowerStrength());
             }
         } else {
             System.out.println("==> Un gerrier crache sur la magie");

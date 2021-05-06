@@ -41,6 +41,8 @@ public class WeaponsCase extends Case  {
             } catch (MaxStrengthException e) {
                 player.setStrength(10);
             }
+        } else if (player instanceof Jcvd){
+            System.out.println("==> JCVD pense que les armes c'est pour les faibles");
         } else {
             System.out.println("==> Un Magicien n'accepte pas des armes de PD");
         }

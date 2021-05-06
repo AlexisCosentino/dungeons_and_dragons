@@ -34,13 +34,21 @@ public class PotionCase  extends Case {
             } catch (MaxHealthException e) {
                 player.setHealth(6);
             }
-        } else {
+        } else if (player instanceof Warrior ){
             try {
-                if (player instanceof Warrior && player.getHealth() > 10 ) {
+                if (player.getHealth() > 10 ) {
                     throw new MaxHealthException();
                 }
             } catch (MaxHealthException e) {
                 player.setHealth(10);
+            }
+        } else {
+            try {
+                if (player.getHealth() > 15 ) {
+                    throw new MaxHealthException();
+                }
+            } catch (MaxHealthException e) {
+                player.setHealth(15);
             }
         }
     }
