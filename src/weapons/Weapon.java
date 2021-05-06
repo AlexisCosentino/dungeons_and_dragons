@@ -1,8 +1,8 @@
 package weapons;
 
 abstract public class Weapon {
-    private String weaponName = "vide";
-    private int weaponStrength = 0;
+    private String weaponName;
+    private int weaponStrength;
 
     public Weapon(String name, int strength){
         this.weaponName = name;

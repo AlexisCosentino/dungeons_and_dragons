@@ -3,9 +3,9 @@ package enemies;
 abstract public class Enemies {
 	
 	//ATTRIBUTES
-	private String name = "Enemy";
-	private int health = 6;
-	private int strength = 1;
+	private String name;
+	private int health;
+	private int strength;
 
 
 	public Enemies(String name, int health, int strength) {

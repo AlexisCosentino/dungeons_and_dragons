@@ -3,12 +3,10 @@ package character;
 abstract public class Character {
 	
 	//attributes;;
-	private String name = "default";
-	private int health = 5;
-	private int strength = 5;
-	private int wallet = 0;
-	private String img = "url";
-
+	private String name;
+	private int health;
+	private int strength;
+	private int wallet;
 	
 	public Character(String name, int health, int strength, int wallet) {
 		this.name = name;

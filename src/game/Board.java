@@ -2,6 +2,7 @@ package game;
 
 import cases.*;
 import enemies.*;
+import javafx.scene.effect.Light;
 import potions.*;
 import powers.*;
 import weapons.*;
@@ -12,18 +13,28 @@ import java.util.List;
 public class Board {
     private int nbCase = 0;
     private List<Case> liste = new ArrayList<Case>();
-    private Enemies gobelin = new Gobelin();
-    private Enemies sorcier = new Sorcier();
-    private Enemies dragon = new Dragon();
-    private Weapon mace = new Mace();
-    private Potion elixir = new Elixir();
-    private Weapon sword = new Sword();
-    private Potion bigElixir = new BigElixir();
-    private Power light = new Storm();
-    private Power fire = new Fire();
+    private Enemies gobelin;
+    private Enemies sorcier;
+    private Enemies dragon;
+    private Weapon mace;
+    private Potion elixir;
+    private Weapon sword;
+    private Potion bigElixir;
+    private Power light;
+    private Power fire;
 
 
     public Board(){
+        this.gobelin = new Gobelin();
+        this.sorcier = new Sorcier();
+        this.dragon = new Dragon();
+        this.mace = new Mace();
+        this.elixir = new Elixir();
+        this.sword = new Sword();
+        this.bigElixir = new BigElixir();
+        this.light = new Storm();
+        this.fire = new Fire();
+
         for (int i=0; i<4; i++ ){
             liste.add(new EnemiesCase(dragon));
         }

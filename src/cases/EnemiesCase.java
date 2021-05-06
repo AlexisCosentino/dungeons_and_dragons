@@ -10,13 +10,14 @@ public class EnemiesCase  extends Case  {
     private Enemies enemies;
     private String sentence;
     private String fightSentence;
-    private Scanner in = new Scanner(System.in);
+    private Scanner in;
 
 
     public EnemiesCase(Enemies enemies){
         this.enemies = enemies;
         this.sentence = enemies.toString();
         this.fightSentence = enemies.toStringFight();
+        this.in = new Scanner(System.in);
     }
 
     @Override

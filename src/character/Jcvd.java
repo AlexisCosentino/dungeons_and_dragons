@@ -1,9 +1,9 @@
 package character;
 
 import powers.Power;
-import weapons.Weapon;
 
 public class Jcvd extends Character{
+
     private Power power;
 
     public Jcvd(String name, Power power){

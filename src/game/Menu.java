@@ -14,7 +14,7 @@ public class Menu {
 	private Character player;
 	private Weapon weapon;
 	private Power power;
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	private String name;
 
 
@@ -22,6 +22,7 @@ public class Menu {
 		this.player = null;
 		this.weapon = null;
 		this.power = null;
+		this.in = new Scanner(System.in);
 	}
 	
 
@@ -30,6 +31,19 @@ public class Menu {
 		System.out.println("  |----------------------------------------------| ");
 		System.out.println("==|  Bienvenue dans le jeu Dungeons & Dragons !  |==");
 		System.out.println("  |----------------------------------------------|");
+		System.out.println("		        ,     \\    /      ,        ");
+		System.out.println("		       / \\    )\\__/(     / \\       ");
+		System.out.println("		      /   \\  (_\\  /_)   /   \\      ");
+		System.out.println("		 ____/_____\\__\\@  @/___/_____\\____ ");
+		System.out.println("		|             |\\../|              |");
+		System.out.println("		|              \\VV/               |");
+		System.out.println("		|        R U READY TO DIE ?       |");
+		System.out.println("		|_________________________________|");
+		System.out.println("		 |    /| /      \\\\       \\ |\\    |");
+		System.out.println("		 |  /   V        ))       V   \\  |");
+		System.out.println("		 |/     `       //        '     \\|");
+		System.out.println("		 `              V                '");
+
 		waitAndSee(500);
 		System.out.println("Tapez votre nom :");
 		name = in.nextLine();

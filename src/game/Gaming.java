@@ -4,7 +4,7 @@ package game;
 import cases.Case;
 import cases.EnemiesCase;
 import exceptions.PersonnageHorsPlateauException;
-
+import character.Character;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,23 +12,26 @@ import java.util.Scanner;
 public class Gaming {
 
 	private Menu menu;
-	private Scanner in = new Scanner(System.in);
-	private Board board = new Board();
-	private Dice dice = new Dice();
-	private Shop shop = new Shop(menu);
+	private Scanner in;
+	private Board board;
+	private Dice dice;
+	private Character player;
 
 
 	public Gaming(Menu menu){
+
 		this.menu = menu;
+		this.board = new Board();
+		this.player = menu.getPlayer();
+		this.dice = new Dice(player);
+		this.in = new Scanner(System.in);
 	}
 
 
 	public void launchGame(){
-
 		Collections.shuffle(board.getListe(), new Random());	//RANDOM ARRAYLIST
 
-		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListeSize()) {
-			shop.goToShop();
+		while (player.getHealth() > 0 && board.getNbCase() < board.getListeSize()) {
 			dice.launchDice();
 
 			int launchDice = dice.play();
@@ -50,14 +53,14 @@ public class Gaming {
 
 				System.out.println(currentCase.toString());								//J'annonce la case
 
-				currentCase.interaction(menu.getPlayer());								//Je fais l'intéraction
+				currentCase.interaction(player);								//Je fais l'intéraction
 
 				int choice = 0;
 				if (currentCase instanceof EnemiesCase){								//Si c'est une case enemie
-					while (((EnemiesCase) currentCase).getEnemies().getHealth() > 0 && choice != 2 && menu.getPlayer().getHealth() > 0) {		//Tant que l'énemie est tjr en vie, que je veux me battre et que j'ai de la vie
+					while (((EnemiesCase) currentCase).getEnemies().getHealth() > 0 && choice != 2 && player.getHealth() > 0) {		//Tant que l'énemie est tjr en vie, que je veux me battre et que j'ai de la vie
 						System.out.println();
 						System.out.println(((EnemiesCase) currentCase).getEnemies().toStringFight());					//J'annonce l'état de l'énemie
-						System.out.println(menu.getPlayer().toString());												//Etat du joueur
+						System.out.println(player.toString());												//Etat du joueur
 						System.out.println("-------------------------");												//Je propose de se battre encore ou de partir
 						System.out.println("1 -> SE BATTRE");
 						System.out.println("2 -> FUIR TEL UN LACHE");
@@ -65,7 +68,7 @@ public class Gaming {
 						choice = in.nextInt();
 						switch (choice) {
 							case 1:
-								currentCase.interaction(menu.getPlayer());				//Il se bat encore
+								currentCase.interaction(player);				//Il se bat encore
 								break;
 							case 2:
 								int goBack = dice.play();
@@ -76,20 +79,15 @@ public class Gaming {
 				}
 
 
-				System.out.println(menu.getPlayer().toString());
+				System.out.println(player.toString());
 				System.out.println();
 			}
 		}
-		if (menu.getPlayer().getHealth() <= 0) {
-
-			System.out.println("-----------------------");
-			System.out.println("|  Vous avez perdu !!  |");
-			System.out.println("-----------------------");
+		if (player.getHealth() <= 0) {
+			gameOver();
 
 		} else {
-			System.out.println("-----------------------");
-			System.out.println("|  Vous avez gagné !!  |");
-			System.out.println("-----------------------");
+			youWin();
 
 		}
 	}
@@ -121,6 +119,27 @@ public class Gaming {
 		}
 	}
 
+	public void gameOver(){
+		System.out.println("       __..._   _...__");
+		System.out.println("  _..-\"      `Y`      \"-._");
+		System.out.println("  \\   GAME    |           /");
+		System.out.println("  \\\\   OVER   |          //");
+		System.out.println("  \\\\\\   !!    |         ///");
+		System.out.println("   \\\\\\ _..---.|.---.._ ///");
+		System.out.println("    \\\\`_..---.Y.---.._`//");
+		System.out.println("     '`               `'");
+	}
+
+	public void youWin(){
+		System.out.println("       __..._   _...__");
+		System.out.println("  _..-\"      `Y`      \"-._");
+		System.out.println("  \\   TU AS   |           /");
+		System.out.println("  \\\\   GAGNE  |          //");
+		System.out.println("  \\\\\\   !!    |         ///");
+		System.out.println("   \\\\\\ _..---.|.---.._ ///");
+		System.out.println("    \\\\`_..---.Y.---.._`//");
+		System.out.println("     '`               `'");
+	}
 
 
 }

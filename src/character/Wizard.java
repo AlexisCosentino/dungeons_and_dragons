@@ -1,7 +1,6 @@
 package character;
 
 import powers.Power;
-import weapons.Weapon;
 
 public class Wizard extends Character {
 	private Power power;

@@ -6,10 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MoneyCase extends Case{
     private String sentence;
-    private int money = moneyGenerate();
+    private int money;
 
     public MoneyCase(){
-        this.sentence = "Vous avez gagné 5 Rials !!";
+        this.sentence = "MONEY MONEY !!";
+        this.money = moneyGenerate();
     }
 
     @Override
@@ -19,7 +20,7 @@ public class MoneyCase extends Case{
 
     @Override
     public String toString() {
-        return sentence;
+        return sentence + " Vous avez gagné " + money + " 元";
     }
 
     public int moneyGenerate(){

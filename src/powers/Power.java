@@ -1,8 +1,8 @@
 package powers;
 
 abstract public class Power {
-    private String powerName = "vide";
-    private int powerStrength = 0;
+    private String powerName;
+    private int powerStrength;
 
     public Power(String name, int strength){
         this.powerName = name;
