@@ -11,7 +11,8 @@ public class Dice {
 		Scanner in = new Scanner(System.in);
 		System.out.println("----------------------------------------------------------");
 
-		System.out.println("Lancer le dé ? 1 -> oui      2 -> Non je quitte le jeu");
+		System.out.println("Lancer le dé ?");
+		System.out.println(" 1 -> oui      2 -> Non je quitte le jeu");
 		int choice = in.nextInt();
 		switch (choice){
 			case 1 :
@@ -20,6 +21,9 @@ public class Dice {
 			case 2:
 				System.out.println("Aucune race pour quitter en cours de jeu ! CIAO !");
 				System.exit(0);
+			default:
+				System.out.println("Choix non valide");
+				launchDice();
 		}
 	}
 	

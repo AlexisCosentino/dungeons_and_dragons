@@ -3,7 +3,7 @@ package cases;
 import character.Character;
 
 public class EmptyCase extends Case {
-    private String sentence = "Vous êtes tombé sur une case vide, ouf !";
+    private String sentence;
 
     public EmptyCase(){
         this.sentence = "Il n'y a rien a craindre par ici....";

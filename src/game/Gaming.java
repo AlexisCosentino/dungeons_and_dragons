@@ -13,6 +13,9 @@ public class Gaming {
 
 	private Menu menu;
 	private Scanner in = new Scanner(System.in);
+	private Board board = new Board();
+	private Dice dice = new Dice();
+	private Shop shop = new Shop(menu);
 
 
 	public Gaming(Menu menu){
@@ -21,12 +24,11 @@ public class Gaming {
 
 
 	public void launchGame(){
-		Board board = new Board();
-		Dice dice = new Dice();
 
 		Collections.shuffle(board.getListe(), new Random());	//RANDOM ARRAYLIST
 
 		while (menu.getPlayer().getHealth() > 0 && board.getNbCase() < board.getListeSize()) {
+			shop.goToShop();
 			dice.launchDice();
 
 			int launchDice = dice.play();
@@ -113,6 +115,9 @@ public class Gaming {
 			case 2:
 				System.out.println("C'est CIAO mon gars !");
 				System.exit(0);
+			default:
+				System.out.println("Choix non valide");
+				replay();
 		}
 	}
 

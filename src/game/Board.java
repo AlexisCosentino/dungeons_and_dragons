@@ -54,6 +54,9 @@ public class Board {
         for (int i=0; i<16; i++) {
             liste.add(new EmptyCase());
         }
+        for (int i=0; i<11; i++){
+            liste.add(new MoneyCase());
+        }
 
     }
 

@@ -31,7 +31,7 @@ public class EnemiesCase  extends Case  {
             enemies.setHealth(0);
             System.out.println();
             System.out.println(player.getName() + " -> a perdu 0 de vie");
-            System.out.println(enemies.getName() + " -> a perdu -" + enemies.getHealth() + " de vie");
+            System.out.println(enemies.getName() + " -> a perdu toute sa vie");
             System.out.println("Le " + enemies.getName() + " est MORT.");
         } else {
             enemies.setHealth(enemies.getHealth() - player.getStrength());

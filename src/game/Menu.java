@@ -61,7 +61,7 @@ public class Menu {
 					exit();
 				default:
 					System.out.println("Choix non valide");
-					welcome();
+					menu();
 			}
 	}
 
@@ -87,7 +87,7 @@ public class Menu {
 			case 3:
 				player = new Jcvd("Jean-Claude Van Damme", power);
 				System.out.println("Vous avez choisi d'etre " + player.getName() + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
-				System.out.println("Vous aurez la santee d'un guerrier et les armes d'un magicien");
+				System.out.println("Vous aurez la santee d'un guerrier et les pouvoirs d'un magicien");
 				break;
 			case 4:
 				exit();

@@ -9,7 +9,7 @@ public class Wizard extends Character {
 
 
 	public Wizard(String name, Power power) {
-		super(name, 3, 8);
+		super(name, 3, 8, 0);
 		this.power = power;
 	}
 

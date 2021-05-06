@@ -6,13 +6,15 @@ abstract public class Character {
 	private String name = "default";
 	private int health = 5;
 	private int strength = 5;
+	private int wallet = 0;
 	private String img = "url";
 
 	
-	public Character(String name, int health, int strength) {
+	public Character(String name, int health, int strength, int wallet) {
 		this.name = name;
 		this.health = health;
 		this.strength = strength;
+		this.wallet = wallet;
 	}
 
 	public abstract String getLeftHand();
@@ -41,12 +43,12 @@ abstract public class Character {
 		this.strength = strength;
 	}
 
-	public String getImg() {
-		return img;
+	public int getWallet() {
+		return wallet;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setWallet(int wallet) {
+		this.wallet = wallet;
 	}
 
 	public String toString() {

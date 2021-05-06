@@ -10,7 +10,7 @@ public class Warrior extends Character {
 
 
 	public Warrior(String name, Weapon weapon) {
-		super(name, 5, 5);
+		super(name, 5, 5, 0);
 		this.weapon = weapon;
 	}
 
