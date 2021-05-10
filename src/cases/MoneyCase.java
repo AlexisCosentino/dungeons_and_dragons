@@ -1,26 +1,26 @@
 package cases;
 
 import character.Character;
+import game.Board;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MoneyCase extends Case{
-    private String sentence;
     private int money;
 
     public MoneyCase(){
-        this.sentence = "MONEY MONEY !!";
+        super("MONEY MONEY !!");
         this.money = moneyGenerate();
     }
 
     @Override
-    public void interaction(Character player) {
+    public void interaction(Character player, Board board) {
         player.setWallet(player.getWallet() + money);
     }
 
     @Override
     public String toString() {
-        return sentence + " Vous avez gagné " + money + " 元";
+        return super.toString() + " Vous avez gagné " + money + " 元";
     }
 
     public int moneyGenerate(){

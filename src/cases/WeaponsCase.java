@@ -3,29 +3,24 @@ package cases;
 import character.*;
 import character.Character;
 import exceptions.MaxStrengthException;
+import game.Board;
 import weapons.Weapon;
 
 import java.util.Scanner;
 
 public class WeaponsCase extends Case  {
     private Weapon weapon;
-    private String sentence;
     private Scanner in;
 
     public WeaponsCase(Weapon weapon){
+        super(weapon.toString());
         this.weapon = weapon;
-        this.sentence = weapon.toString();
         this.in = new Scanner(System.in);
     }
 
 
     @Override
-    public String toString() {
-        return sentence;
-    }
-
-    @Override
-    public void interaction(Character player) {
+    public void interaction(Character player, Board board) {
         if (player instanceof Warrior){
 
             if (player.getLeftHand() == null) {

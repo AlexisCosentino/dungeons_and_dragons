@@ -1,27 +1,22 @@
 package cases;
 
 import exceptions.MaxHealthException;
+import game.Board;
 import potions.Potion;
 import character.Character;
 import character.*;
 
 public class PotionCase  extends Case {
     private Potion potion;
-    private String sentence;
 
     public PotionCase(Potion potion){
+        super(potion.toString());
         this.potion = potion;
-        this.sentence = potion.toString();
-    }
-
-    @Override
-    public String toString() {
-        return sentence;
     }
 
 
     @Override
-    public void interaction(Character player) {
+    public void interaction(Character player, Board board) {
         player.setHealth(player.getHealth() + potion.getStrength());
 
         //EXCEPTION FOR MAXIMUM HEALTH////////////////////

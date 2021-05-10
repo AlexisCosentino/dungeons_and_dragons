@@ -1,20 +1,16 @@
 package cases;
 
 import character.Character;
+import game.Board;
 
 public class EmptyCase extends Case {
-    private String sentence;
 
     public EmptyCase(){
-        this.sentence = "Il n'y a rien a craindre par ici....";
+        super("Il n'y a rien a craindre par ici....");
     }
 
     @Override
-    public void interaction(Character player) {
+    public void interaction(Character player, Board board) {
     }
 
-    @Override
-    public String toString() {
-        return sentence;
-    }
 }

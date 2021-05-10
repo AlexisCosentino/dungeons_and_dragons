@@ -21,6 +21,9 @@ public class Board {
     private Potion bigElixir;
     private Power light;
     private Power fire;
+    private Balek balek;
+    private Case balekCase;
+
 
 
     public Board(){
@@ -33,6 +36,8 @@ public class Board {
         this.bigElixir = new BigElixir();
         this.light = new Storm();
         this.fire = new Fire();
+        this.balek = new Balek();
+        this.balekCase = new BalekCase(balek);
 
         for (int i=0; i<4; i++ ){
             liste.add(new EnemiesCase(dragon));
@@ -88,9 +93,23 @@ public class Board {
         return nbCase;
     }
 
+    public Case getBalekCase() {
+        return balekCase;
+    }
+
     public void setNbCase(int nbCase) {
 
         this.nbCase = nbCase;
     }
 
+    public void waitAndSee(int time){
+        try
+        {
+            Thread.sleep(time);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
 }
