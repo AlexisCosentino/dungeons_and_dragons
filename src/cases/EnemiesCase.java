@@ -6,7 +6,7 @@ import character.Character;
 import java.util.Scanner;
 
 
-public class EnemiesCase  extends Case  {
+public class EnemiesCase extends Case  {
     private Enemies enemies;
     private String sentence;
     private String fightSentence;

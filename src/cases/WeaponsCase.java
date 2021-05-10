@@ -5,13 +5,17 @@ import character.Character;
 import exceptions.MaxStrengthException;
 import weapons.Weapon;
 
+import java.util.Scanner;
+
 public class WeaponsCase extends Case  {
     private Weapon weapon;
     private String sentence;
+    private Scanner in;
 
     public WeaponsCase(Weapon weapon){
         this.weapon = weapon;
         this.sentence = weapon.toString();
+        this.in = new Scanner(System.in);
     }
 
 
@@ -28,8 +32,18 @@ public class WeaponsCase extends Case  {
                 ((Warrior) player).setWeapon(weapon);
                 player.setStrength(player.getStrength() + weapon.getWeaponStrength());
             } else if (player.getLeftHand() != weapon.getWeaponName()){
-                ((Warrior) player).setWeapon(weapon);
-                player.setStrength(5 + weapon.getWeaponStrength());
+                System.out.println("Souhaitez vous changer d'arme ?");
+                System.out.println("1. Yes      2. Non");
+                int choice = in.nextInt();
+                switch (choice){
+                    case 1 :
+                        ((Warrior) player).setWeapon(weapon);
+                        player.setStrength(5 + weapon.getWeaponStrength());
+                        break;
+                    case 2 :
+                        break;
+                }
+
             }
 
             //// EXCEPTION FOR MAX STRENGTH /////////////////// EVEN ITS NOT REALLY POSSIBLE WITHOUT CHEAT

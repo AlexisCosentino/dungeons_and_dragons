@@ -43,7 +43,11 @@ public class Dice {
 				launchDice();
 		}
 	}
-	
+
+	public Shop getShop() {
+		return shop;
+	}
+
 	public int play() {
 		int randomNum = ThreadLocalRandom.current().nextInt(1, 6 + 1);
 		return randomNum;

@@ -2,7 +2,6 @@ package game;
 
 import cases.*;
 import enemies.*;
-import javafx.scene.effect.Light;
 import potions.*;
 import powers.*;
 import weapons.*;

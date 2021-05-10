@@ -3,6 +3,7 @@ package game;
 
 import cases.Case;
 import cases.EnemiesCase;
+import enemies.Balek;
 import exceptions.PersonnageHorsPlateauException;
 import character.Character;
 import java.util.Collections;
@@ -16,6 +17,8 @@ public class Gaming {
 	private Board board;
 	private Dice dice;
 	private Character player;
+	private Balek balek;
+
 
 
 	public Gaming(Menu menu){
@@ -25,6 +28,8 @@ public class Gaming {
 		this.player = menu.getPlayer();
 		this.dice = new Dice(player);
 		this.in = new Scanner(System.in);
+		this.balek = new Balek();
+
 	}
 
 
@@ -87,7 +92,14 @@ public class Gaming {
 			gameOver();
 
 		} else {
-			youWin();
+			meetBalek();
+			fightBalek();
+
+			if (player.getHealth() > 0){
+				youWin();
+			} else {
+				gameOver();
+			}
 
 		}
 	}
@@ -141,6 +153,64 @@ public class Gaming {
 		System.out.println("     '`               `'");
 	}
 
+	public void meetBalek(){
+		System.out.println("Tu es arrivé au bout du jeu !!");
+		menu.waitAndSee(500);
+		System.out.println("B");
+		menu.waitAndSee(500);
+		System.out.println("BOO");
+		menu.waitAndSee(500);
+		System.out.println("BOOOO");
+		menu.waitAndSee(500);
+		System.out.println("BOOOOOOOOM !!!");
+		menu.waitAndSee(500);
+		System.out.println("Putain !! " + balek.getName() + " est la !!");
+		System.out.println("Voici quelques 20 pieces d'or et va acheter ce dont tu as besoin pour lui nike sa race");
+		player.setWallet(player.getWallet() + 20);
+		menu.waitAndSee(1500);
+		dice.getShop().buy();
+		System.out.println(balek.toString());
+		System.out.println(player.toString());
+		menu.waitAndSee(500);
+	}
+
+	public void fightBalek(){
+		while (player.getHealth() > 0 && balek.getHealth() > 0) {
+			if (player.getStrength() >= balek.getHealth()) {
+				balek.setHealth(0);
+				System.out.println();
+				System.out.println(player.getName() + " -> a perdu 0 de vie");
+				System.out.println(balek.getName() + " -> a perdu toute sa vie");
+				System.out.println(balek.balekIsDead());
+			} else {
+				balek.setHealth(balek.getHealth() - player.getStrength());
+				player.setHealth(player.getHealth() - balek.getStrength());
+				System.out.println();
+				System.out.println(player.getName() + " -> a perdu -" + balek.getStrength() + " de vie");
+				System.out.println(balek.getName() + " -> a perdu -" + player.getStrength() + " de vie");
+			}
+			if ( balek.getHealth() > 0 ) {
+				System.out.println();
+				System.out.println(balek.toString());
+				System.out.println(player.toString());
+				System.out.println("-------------------------");                                                //Je propose de se battre encore ou de partir
+				System.out.println("1 -> SE BATTRE");
+				System.out.println("2 -> FUIR TEL UN LACHE");
+				System.out.println("-------------------------");
+				int choice = in.nextInt();
+				switch (choice) {
+					case 1:
+						fightBalek();                //Il se bat encore
+						break;
+					case 2:
+						System.out.println("Impossible de fuir mon gars, bagarre jusqu'à la mort !!");
+						menu.waitAndSee(3000);
+						fightBalek();
+						break;
+				}
+			}
+		}
+	}
 
 }
 

@@ -7,7 +7,7 @@ public class Jcvd extends Character{
     private Power power;
 
     public Jcvd(String name, Power power){
-        super(name, 6,6, 0);
+        super(name, 6,6, 5);
         this.power = power;
     }
 
