@@ -19,4 +19,6 @@ Then if you really want play with this character, you will need to add in the me
 
 If you want see this enemy in the game, you will also need to add in the boardList, some new EnemyCase(new YourEnemy).<br>
 
+<br>
 
+<img src="uml.PNG">
