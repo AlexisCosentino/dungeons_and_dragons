@@ -61,7 +61,7 @@ public class EnemiesCase extends Case  {
                     break;
                 case 2:
                     int goBack = dice.play();
-                    board.setNbCase(board.getNbCase() - goBack);			//il recule de quelques cases
+                    board.setIndexPlayer(board.getIndexPlayer() - goBack);			//il recule de quelques cases
                     break;
             }
         }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    private int nbCase = 0;
+    private int indexPlayer = 0;
     private List<Case> liste = new ArrayList<Case>();
     private Enemies gobelin;
     private Enemies sorcier;
@@ -88,18 +88,18 @@ public class Board {
         this.liste = liste;
     }
 
-    public int getNbCase() {
+    public int getIndexPlayer() {
 
-        return nbCase;
+        return indexPlayer;
     }
 
     public Case getBalekCase() {
         return balekCase;
     }
 
-    public void setNbCase(int nbCase) {
+    public void setIndexPlayer(int indexPlayer) {
 
-        this.nbCase = nbCase;
+        this.indexPlayer = indexPlayer;
     }
 
     public void waitAndSee(int time){

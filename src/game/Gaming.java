@@ -39,25 +39,25 @@ public class Gaming {
 	public void launchGame(){
 		Collections.shuffle(board.getListe(), new Random());	//RANDOM ARRAYLIST
 
-		while (player.getHealth() > 0 && board.getNbCase() < board.getListeSize()) {
+		while (player.getHealth() > 0 && board.getIndexPlayer() < board.getListeSize()){
 			wantPlay();
 
 			int launchDice = dice.play();
 			System.out.println();
 			System.out.print("Vous avez joué " + launchDice);
 			try {
-				board.setNbCase(board.getNbCase() + launchDice);
-				if (board.getNbCase() > board.getListeSize()) {
+				board.setIndexPlayer(board.getIndexPlayer() + launchDice);
+				if (board.getIndexPlayer() > board.getListeSize()) {
 					throw new PersonnageHorsPlateauException("erreur");
 				}
 			} catch (PersonnageHorsPlateauException e) {
-				board.setNbCase(board.getListeSize());
+				board.setIndexPlayer(board.getListeSize());
 			}
 
-			System.out.println(", vous êtes sur la case " + board.getNbCase());
+			System.out.println(", vous êtes sur la case " + board.getIndexPlayer());
 
-			if ( board.getNbCase() < board.getListeSize()) {							//Si mon index est inférieur a la taille du plateau //ENLEVER LA CONDITION !!
-				Case currentCase = board.getListe().get(board.getNbCase());
+			if ( board.getIndexPlayer() < board.getListeSize()) {							//Si mon index est inférieur a la taille du plateau //ENLEVER LA CONDITION !!
+				Case currentCase = board.getListe().get(board.getIndexPlayer());
 
 				System.out.println(currentCase.toString());								//J'annonce la case
 
@@ -78,8 +78,7 @@ public class Gaming {
 			System.out.println(player.toString());
 			menu.waitAndSee(500);
 			((BalekCase) board.getBalekCase()).fightBalek(player, balek);
-			//meetBalek();
-			//fightBalek();
+
 
 			if (player.getHealth() > 0){
 				youWin();
