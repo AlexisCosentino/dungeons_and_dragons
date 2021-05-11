@@ -21,4 +21,4 @@ If you want see this enemy in the game, you will also need to add in the boardLi
 
 <br>
 
-<img src="uml.png">
+<img src="uml.jpg">
