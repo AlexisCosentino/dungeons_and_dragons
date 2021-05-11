@@ -54,7 +54,7 @@ public class Gaming {
 				board.setIndexPlayer(board.getListeSize());
 			}
 
-			System.out.println(", vous êtes sur la case " + board.getIndexPlayer());
+			System.out.println(", vous êtes sur la case " + board.getIndexPlayer() +"/" + board.getListeSize());
 
 			if ( board.getIndexPlayer() < board.getListeSize()) {							//Si mon index est inférieur a la taille du plateau //ENLEVER LA CONDITION !!
 				Case currentCase = board.getListe().get(board.getIndexPlayer());

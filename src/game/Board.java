@@ -72,6 +72,9 @@ public class Board {
         for (int i=0; i<11; i++){
             liste.add(new MoneyCase());
         }
+        for (int i=0; i<5; i++){
+            liste.add(new TrapCase());
+        }
 
     }
 

@@ -20,5 +20,9 @@ Then if you really want play with this character, you will need to add in the me
 If you want see this enemy in the game, you will also need to add in the boardList, some new EnemyCase(new YourEnemy).<br>
 
 <br>
-
+UML with connection between class :
+<img src="uml_with_connection.jpg">
+<br>
+<br>
+UML Without connection :
 <img src="uml.jpg">
