@@ -7,14 +7,25 @@ import game.Dice;
 
 import java.util.Scanner;
 
-
+/**
+ * Classe enfant de case qui représente une case enemie
+ */
 public class EnemiesCase extends Case  {
+
+    /**
+     * Attribut propre a cette case qui représente l'objet enemie et phrase de combat
+     */
+
     private Enemies enemies;
     private String fightSentence;
     private Scanner in;
     private Dice dice;
 
 
+    /**
+     * Constructeur de cette case enemie avec un enemie en parametre
+     * @param enemies
+     */
     public EnemiesCase(Enemies enemies){
         super(enemies.toString());
         this.enemies = enemies;
@@ -44,6 +55,11 @@ public class EnemiesCase extends Case  {
         keepFighting(player, board);
     }
 
+    /**
+     * Méthode qui permet de poser la question : continuer à se battre ou non
+     * @param player
+     * @param board
+     */
     public void keepFighting(Character player, Board board){
         int choice = 0;
         while (enemies.getHealth() > 0 && choice != 2 && player.getHealth() > 0) {		//Tant que l'énemie est tjr en vie, que je veux me battre et que j'ai de la vie
@@ -61,7 +77,7 @@ public class EnemiesCase extends Case  {
                     break;
                 case 2:
                     int goBack = dice.play();
-                    board.setIndexPlayer(board.getIndexPlayer() - goBack);			//il recule de quelques cases
+                    board.setIndexPlayer(board.getIndexPlayer() - goBack);			//il recule de quelques case
                     break;
             }
         }

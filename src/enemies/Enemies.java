@@ -1,19 +1,38 @@
+/**
+ * Package de tout les enemies que vous pouvez rencontrer dans le jeu
+ */
 package enemies;
 
+/**
+ * classe parent de tout les enemies que vous pouvez rencontrer dans le jeu
+ */
 abstract public class Enemies {
-	
-	//ATTRIBUTES
+
+
+	/**
+	 * Attributs nom, force, santée
+	 */
 	private String name;
 	private int health;
 	private int strength;
 
 
+	/**
+	 *
+	 * @param name nom de l'ennemie
+	 * @param health santée de l'enemie
+	 * @param strength force de l'enemie
+	 */
 	public Enemies(String name, int health, int strength) {
 		this.name = name;
 		this.health = health;
 		this.strength = strength;
 	}
 
+	/**
+	 *
+	 * @return une phrase
+	 */
 	@Override
 	public String toString() {
 		return "ENEMIE !!! ->  " + name +

@@ -8,9 +8,16 @@ import character.Jcvd;
 import powers.Power;
 import weapons.Weapon;
 
-
+/**
+ * Ceci est le menu du jeu avec une méthode qui permet d'accéder au menu général du jeu, creer un personnage, voir le reglement,
+ * quitter le jeu et le lancer.
+ */
 public class Menu {
 
+
+	/**
+	 * Attribut dont la classe menu aura besoin tel que les personnage, les armes... et le prénom du joueur
+	 */
 	private Character player;
 	private Weapon weapon;
 	private Power power;
@@ -18,15 +25,20 @@ public class Menu {
 	private String name;
 
 
+	/**
+	 * Constructeur du menu avec l'instanciation des objets dont il a besoin
+	 */
 	public Menu(){
 		this.player = null;
 		this.weapon = null;
 		this.power = null;
 		this.in = new Scanner(System.in);
 	}
-	
 
 
+	/**
+	 * Méthode simple qui annonce la bienvenue dans le jeu et qui récupére le prénom du joueur
+	 */
 	public void welcome() {
 		System.out.println("  |----------------------------------------------| ");
 		System.out.println("==|  Bienvenue dans le jeu Dungeons & Dragons !  |==");
@@ -50,6 +62,10 @@ public class Menu {
 		System.out.println("Bonjour " + name + ", vous allez pleurer du sang aujourd'hui");
 	}
 
+
+	/**
+	 * Le vrai menu du jeu avec le choix entrer jouer, creer un perso, lire les instruction ou quitter
+	 */
 	public void menu(){
 		System.out.println();
 		System.out.println("<=======|" + name + "|=======>");
@@ -79,7 +95,8 @@ public class Menu {
 			}
 	}
 
-	public void createChar(){
+	/*
+	public void createChare(){
 		System.out.println("Que voulez-vous jouer :");
 		System.out.println("------------------------------------------------");
 		System.out.println("1 -> MAGICIEN (Santee faible, Attaque forte)");
@@ -113,13 +130,55 @@ public class Menu {
 		waitAndSee(1000);
 		menu();
 	}
+	 */
 
 
+	/**
+	 * méthode qui permet de creer un personnage pour jouer le jeu
+	 */
+	public void createChar() {
+		System.out.println("Que voulez-vous jouer :");
+		System.out.println("------------------------------------------------");
+		System.out.println("Wizard --> (Santee faible, Attaque forte)");
+		System.out.println("Warrior --> (Santee forte, Attaque faible)");
+		System.out.println("Jcvd --> (Santee forte, Attaque forte)");
+		System.out.println("exit --> Quitter le jeu");
+		System.out.println("------------------------------------------------");
+		Scanner scan = new Scanner(System.in);
+		String userChoice = scan.nextLine();
+		if ("exit".equalsIgnoreCase(userChoice)){
+			exit();
+		} else {
+			try {
+				Class<?> currentHero = Class.forName("character." + userChoice);
+				Character player = (Character) currentHero.newInstance();
+				player.setName(name);
+				System.out.println("Vous avez choisi d'etre " + userChoice + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
+				this.player = player;
+			} catch (Exception e) {
+				System.out.println("Cette classe n'existe pas !");
+				createChar();
+			} catch (NoClassDefFoundError e){
+				System.out.println("Cette classe n'existe pas !");
+				createChar();
+			}
+		}
+		waitAndSee(1000);
+		menu();
+	}
+
+
+	/**
+	 * Méthode pour quitter le jeu
+	 */
 	public void exit() {
 		System.out.println("Bye bye petit lacheur..");
 		System.exit(0);
 	}
 
+	/**
+	 * Méthode qui vérifie si le joueur à bien créé son personnage avant de lancer le jeu
+	 */
 	public void startPlay(){
 		if (player == null){
 			System.out.println("Creez votre personnage avant de jouer !");
@@ -129,6 +188,9 @@ public class Menu {
 		}
 	}
 
+	/**
+	 * Réglement du jeu
+	 */
 	public void rules(){
 		System.out.println("--------------------------------");
 		System.out.println("Il y a 64 cases a parcourir");
@@ -152,7 +214,12 @@ public class Menu {
 		waitAndSee(2000);
 		menu();
 	}
-	
+
+
+	/**
+	 * Méthode qui permet de faker un loading et qui prend du temps en millieme de sec en parametre
+	 * @param time
+	 */
 	public void waitAndSee(int time){
 		try
 		{

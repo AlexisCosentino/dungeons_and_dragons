@@ -9,7 +9,16 @@ import weapons.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe qui représente le plateau de jeu. Il aura besoin des case pour ajouter sur le plateau
+ */
 public class Board {
+
+
+    /**
+     * Attribut dont le plateau aura besoin. tout le objets qui sont présent dans les case pour les instancier en tant que parametre,
+     * l'index du joueur sur le plateau et une liste qui regroupe l'ensemble des case créé.
+     */
     private int indexPlayer = 0;
     private List<Case> liste = new ArrayList<Case>();
     private Enemies gobelin;
@@ -25,7 +34,9 @@ public class Board {
     private Case balekCase;
 
 
-
+    /**
+     * Constructeur du board qui assigne chaque attribut à lur objet et ensuite instancie des case du tableau avec leur objet à l'intérieur.
+     */
     public Board(){
         this.gobelin = new Gobelin();
         this.sorcier = new Sorcier();

@@ -2,11 +2,28 @@ package character;
 
 import powers.Power;
 
+
+/**
+ * Classe enfant de personnage qui représente un Magicien
+ */
 public class Wizard extends Character {
+
+	/**
+	 * attribut propre à wizard de type objet pouvoir
+	 */
 	private Power power;
 
+	/**
+	 * Constructeur avec les parametres du parent
+	 */
+	public Wizard(){
+		super("Magicien", 3, 8, 0);
+		this.power = null;
+	}
 
-
+	/**
+	 * Constructeur avec les parametres du parent
+	 */
 	public Wizard(String name, Power power) {
 		super(name, 3, 8, 0);
 		this.power = power;

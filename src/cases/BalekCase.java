@@ -6,11 +6,23 @@ import enemies.Enemies;
 import game.Board;
 import java.util.Scanner;
 
+
+/**
+ * Classe enfant de case ou se trouve le boss finale du jeu
+ */
 public class BalekCase extends Case{
+
+    /**
+     * Attribut propre a cette case qui représente l'objet Balek
+     */
     private Enemies balek;
     private Scanner in;
 
 
+    /**
+     * Constructeur du boss avec l'enemie en question
+     * @param enemies
+     */
     public BalekCase(Enemies enemies){
         super("Tu es arrivé au bout du jeu !!");
         this.in = new Scanner(System.in);
@@ -34,6 +46,11 @@ public class BalekCase extends Case{
         board.waitAndSee(1500);
     }
 
+    /**
+     * Methode qui permet de se battre avec le boss final
+     * @param player
+     * @param balek
+     */
     public void fightBalek(Character player, Balek balek){
         while (player.getHealth() > 0 && balek.getHealth() > 0) {
             if (player.getStrength() >= balek.getHealth()) {

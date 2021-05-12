@@ -6,9 +6,22 @@ import potions.Potion;
 import character.Character;
 import character.*;
 
+
+/**
+ * Classe enfant de case pour les potions
+ */
 public class PotionCase  extends Case {
+
+    /**
+     * Attribut propre a cette case qui représente l'objet potion
+     */
     private Potion potion;
 
+
+    /**
+     * Constructeur de cette case potion avec une potion en parametre
+     * @param potion
+     */
     public PotionCase(Potion potion){
         super(potion.toString());
         this.potion = potion;

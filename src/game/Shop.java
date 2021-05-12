@@ -3,16 +3,32 @@ package game;
 import java.util.Scanner;
 import character.Character;
 
+
+/**
+ * Voici la classe shop qui permet d'acceder a la boutique et qui permet d'acheter des améliorations pour le personnage.
+ */
 public class Shop {
+
+
+    /**
+     *  Attribut dont la boutique aura besoin, dont le personnage pour voir l'argent qu'il possède et lui attribuer des améliorations
+     */
     private Character player;
     private Scanner in;
 
+    /**
+     * Constructeur de la boutique avec le peronnage en parametre
+     * @param player
+     */
     public Shop(Character player ){
         this.player = player;
         this.in =  new Scanner(System.in);
 
     }
 
+    /**
+     * Méthode principale de la boutique qui permet d'acceder à la boutque et y faire des achats
+     */
         public void buy(){
         System.out.println();
         System.out.println("  |----------------------------------------------| ");

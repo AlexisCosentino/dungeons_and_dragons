@@ -8,10 +8,23 @@ import weapons.Weapon;
 
 import java.util.Scanner;
 
+
+/**
+ * Classe enfant de case qui représente une case ou se trouve une arme
+ */
 public class WeaponsCase extends Case  {
+
+    /**
+     * Attribut propre a cette case qui représente l'objet arme
+     */
     private Weapon weapon;
     private Scanner in;
 
+
+    /**
+     * Constructeur de la case arme qui prend en parametre un objet de type arme
+     * @param weapon
+     */
     public WeaponsCase(Weapon weapon){
         super(weapon.toString());
         this.weapon = weapon;

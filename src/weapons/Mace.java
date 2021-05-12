@@ -1,9 +1,15 @@
 package weapons;
 
+/**
+ * Classe enfant de l'arme
+ */
 public class Mace extends Weapon{
-	
+
+	/**
+	 * Constructeur avec les parametre du parent
+	 */
 	public Mace(){
-		super("Massue", 3);
+		super("\uD83D\uDD28  Massue", 3);
 	}
 	
 	

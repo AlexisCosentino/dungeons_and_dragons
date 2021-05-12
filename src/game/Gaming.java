@@ -10,8 +10,18 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
+
+/**
+ * cette classe est le coeur du jeu ou est instancié les éléments du jeu tels que le plateau, le dé, le shop...
+ * c'est ici que le jeu se déroulera
+ * Vous y trouverez une méthode pour jouer, pour rejouer, gameover, win, et demande de lancer le dé ou quitter.
+ */
 public class Gaming {
 
+
+	/**
+	 * Les attribut que cette classe aura besoin, representant tout les élément du jeu
+	 */
 	private Menu menu;
 	private Scanner in;
 	private Board board;
@@ -21,8 +31,10 @@ public class Gaming {
 	private Shop shop;
 
 
-
-
+	/**
+	 * Constructeur du jeu qui prends le menu en parametre pour récuperer le joueur. Le constructeur instancie tous les autres objet dont il a besoin.
+	 * @param menu
+	 */
 	public Gaming(Menu menu){
 
 		this.menu = menu;
@@ -35,7 +47,10 @@ public class Gaming {
 
 	}
 
-
+	/**
+	 * Ceci est la méthode qui permet de jouer au jeu de D&D
+	 * On y trouera le déplacement, les actions et la fin du plateau + le boss final
+	 */
 	public void launchGame(){
 		Collections.shuffle(board.getListe(), new Random());	//RANDOM ARRAYLIST
 
@@ -90,7 +105,9 @@ public class Gaming {
 	}
 
 
-
+	/**
+	 * Méthode qui permet de demander au joueur de lancer le dé, passer à la boutique ou quiter le jeu
+	 */
 	public void wantPlay(){
 			Scanner in = new Scanner(System.in);
 			System.out.println("----------------------------------------------------------");
@@ -118,7 +135,9 @@ public class Gaming {
 			}
 	}
 
-
+	/**
+	 * Méthode qui demande si l'on souhaite rejouer ou quitter
+	 */
 	public void replay(){
 		System.out.println("Voulez vous rejouer ?");
 		System.out.println("1 -> Yep");
@@ -143,6 +162,9 @@ public class Gaming {
 		}
 	}
 
+	/**
+	 * Méthode représentant un dessin de game over !
+	 */
 	public void gameOver(){
 		System.out.println("       __..._   _...__");
 		System.out.println("  _..-\"      `Y`      \"-._");
@@ -154,6 +176,10 @@ public class Gaming {
 		System.out.println("     '`               `'");
 	}
 
+
+	/**
+	 * Méthode représentant un dessin de winner !
+	 */
 	public void youWin(){
 		System.out.println("       __..._   _...__");
 		System.out.println("  _..-\"      `Y`      \"-._");
