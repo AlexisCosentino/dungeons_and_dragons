@@ -1,7 +1,7 @@
 package weapons;
 
 /**
- * Classe enfant de l'arme
+ * Classe enfant de l'arme -> Massue
  */
 public class Mace extends Weapon{
 

@@ -66,7 +66,7 @@ public class BalekCase extends Case{
                 System.out.println(player.getName() + " -> a perdu -" + balek.getStrength() + " de vie");
                 System.out.println(balek.getName() + " -> a perdu -" + player.getStrength() + " de vie");
             }
-            if ( balek.getHealth() > 0 ) {
+            if ( balek.getHealth() > 0 && player.getHealth() > 0) {
                 System.out.println();
                 System.out.println(balek.toString());
                 System.out.println(player.toString());

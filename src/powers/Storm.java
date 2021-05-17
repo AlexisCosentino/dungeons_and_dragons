@@ -4,7 +4,7 @@
 package powers;
 
 /**
- * Classe enfant de pouvoir.
+ * Classe enfant de pouvoir -> Eclair
  */
 public class Storm extends Power{
 
@@ -12,7 +12,7 @@ public class Storm extends Power{
 	 * contructeur du puvoir avec les parametre des attributs du parent
 	 */
 	public Storm() {
-		super("Eclair", 2);
+		super("\u26A1  Eclair", 2);
 	}
 
 	

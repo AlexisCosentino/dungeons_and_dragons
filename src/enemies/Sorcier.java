@@ -1,7 +1,7 @@
 package enemies;
 
 /**
- * Classe enfant de l'enemie
+ * Classe enfant de l'enemie de type sorcier avec 9 points de vie et 2 points d'attaque
  */
 public class Sorcier extends Enemies{
 

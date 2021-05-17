@@ -1,7 +1,7 @@
 package weapons;
 
 /**
- * Classe enfant de l'arme
+ * Classe enfant de l'arme -> Epée
  */
 public class Sword extends Weapon{
 

@@ -4,7 +4,7 @@ import weapons.Weapon;
 
 
 /**
- * Classe enfant de personnage qui représente un guerrier
+ * Classe enfant de personnage qui représente un guerrier qui accepte des armes, 5points de vie et 5 poins d'attaque
  */
 public class Warrior extends Character {
 

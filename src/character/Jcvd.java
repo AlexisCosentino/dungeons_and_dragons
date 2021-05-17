@@ -4,7 +4,7 @@ import powers.Power;
 
 
 /**
- * Classe enfant de personnage qui représente Jean Claude Van Damme
+ * Classe enfant de personnage qui représente Jean Claude Van Damme et qui accepte des pouvoirs, 6 de vie et 6 de force.
  */
 public class Jcvd extends Character{
 

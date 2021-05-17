@@ -1,7 +1,7 @@
 package enemies;
 
 /**
- * Classe enfant de l'enemie
+ * Classe enfant de l'enemie de type Gobelin avec 6 points de vie et 1 point de force
  */
 public class Gobelin extends Enemies {
 

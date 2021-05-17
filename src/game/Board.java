@@ -21,16 +21,7 @@ public class Board {
      */
     private int indexPlayer = 0;
     private List<Case> liste = new ArrayList<Case>();
-    private Enemies gobelin;
-    private Enemies sorcier;
-    private Enemies dragon;
-    private Weapon mace;
-    private Potion elixir;
-    private Weapon sword;
-    private Potion bigElixir;
-    private Power light;
-    private Power fire;
-    private Balek balek;
+
     private Case balekCase;
 
 
@@ -38,44 +29,35 @@ public class Board {
      * Constructeur du board qui assigne chaque attribut à lur objet et ensuite instancie des case du tableau avec leur objet à l'intérieur.
      */
     public Board(){
-        this.gobelin = new Gobelin();
-        this.sorcier = new Sorcier();
-        this.dragon = new Dragon();
-        this.mace = new Mace();
-        this.elixir = new Elixir();
-        this.sword = new Sword();
-        this.bigElixir = new BigElixir();
-        this.light = new Storm();
-        this.fire = new Fire();
-        this.balek = new Balek();
-        this.balekCase = new BalekCase(balek);
+
+        this.balekCase = new BalekCase(new Balek());
 
         for (int i=0; i<4; i++ ){
-            liste.add(new EnemiesCase(dragon));
+            liste.add(new EnemiesCase(new Dragon()));
         }
         for (int i=0; i<10; i++){
-            liste.add(new EnemiesCase(sorcier));
+            liste.add(new EnemiesCase(new Sorcier()));
         }
         for (int i=0; i<10; i++){
-            liste.add(new EnemiesCase(gobelin));
+            liste.add(new EnemiesCase(new Gobelin()));
         }
         for (int i=0; i<5; i++){
-            liste.add(new WeaponsCase(mace));
+            liste.add(new WeaponsCase(new Mace()));
         }
         for (int i=0; i<4; i++){
-            liste.add(new WeaponsCase(sword));
+            liste.add(new WeaponsCase(new Sword()));
         }
         for (int i=0; i<5; i++){
-            liste.add(new PowerCase(light));;
+            liste.add(new PowerCase(new Storm()));;
         }
         for (int i=0; i<2; i++){
-            liste.add(new PowerCase(fire));;
+            liste.add(new PowerCase(new Fire()));;
         }
         for (int i=0; i<6; i++) {
-            liste.add(new PotionCase(elixir));
+            liste.add(new PotionCase(new Elixir()));
         }
         for (int i=0; i<2; i++) {
-            liste.add(new PotionCase(bigElixir));
+            liste.add(new PotionCase(new BigElixir()));
         }
         for (int i=0; i<16; i++) {
             liste.add(new EmptyCase());

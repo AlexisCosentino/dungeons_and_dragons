@@ -4,7 +4,7 @@
 package powers;
 
 /**
- * Classe enfant de pouvoir.
+ * Classe enfant de pouvoir -> Boule de feu
  */
 public class Fire extends Power {
 
@@ -12,7 +12,7 @@ public class Fire extends Power {
 	 * contructeur du pouvoir avec les parametre des attributs du parent
 	 */
 	public Fire() {
-		super("Boule de Feu", 7);
+		super("\uD83D\uDD25  Boule de Feu", 7);
 	}
 	
 	

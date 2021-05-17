@@ -66,7 +66,8 @@ public class Gaming {
 					throw new PersonnageHorsPlateauException("erreur");
 				}
 			} catch (PersonnageHorsPlateauException e) {
-				board.setIndexPlayer(board.getListeSize());
+				System.out.println("Vous êtes stoppé net sur la dernière case !");
+				board.setIndexPlayer(board.getListeSize()); 					//add -1 to delete next condition
 			}
 
 			System.out.println(", vous êtes sur la case " + board.getIndexPlayer() +"/" + board.getListeSize());
@@ -114,7 +115,7 @@ public class Gaming {
 
 
 			System.out.println("Lancer le dé ?");
-			System.out.println("1 -> oui      2 -> Je passe à la boutique		3 -> Non je quitte le jeu");
+			System.out.println("1 -> \uD83C\uDFB2 oui      2 -> \uD83D\uDED2 Je passe à la boutique		3 -> \uD83D\uDD34 Non je quitte le jeu \uD83D\uDD34");
 
 			int choice = in.nextInt();
 			switch (choice) {

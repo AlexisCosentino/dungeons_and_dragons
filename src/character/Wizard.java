@@ -4,7 +4,7 @@ import powers.Power;
 
 
 /**
- * Classe enfant de personnage qui représente un Magicien
+ * Classe enfant de personnage qui représente un Magicien qui accepte des pouvoir, 3 points de vie et 8 points d'attaque
  */
 public class Wizard extends Character {
 

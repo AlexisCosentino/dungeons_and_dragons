@@ -17,7 +17,7 @@ public class Dice {
 	 * Constructeur du dé
 	 */
 	public Dice(){
-		this.de = play();
+		this.de = 0;
 	}
 
 
