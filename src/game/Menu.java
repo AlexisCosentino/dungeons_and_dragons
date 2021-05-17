@@ -1,10 +1,10 @@
 package game;
 
+
 import java.util.Scanner;
+
+import bdd.Driver;
 import character.Character;
-import character.Warrior;
-import character.Wizard;
-import character.Jcvd;
 import powers.Power;
 import weapons.Weapon;
 
@@ -23,6 +23,7 @@ public class Menu {
 	private Power power;
 	private Scanner in;
 	private String name;
+	private Driver bdd;
 
 
 	/**
@@ -33,6 +34,8 @@ public class Menu {
 		this.weapon = null;
 		this.power = null;
 		this.in = new Scanner(System.in);
+		this.bdd = new Driver();
+
 	}
 
 
@@ -72,8 +75,9 @@ public class Menu {
 		System.out.println("------------------------------------------------");
 		System.out.println("1 -> Jouer");
 		System.out.println("2 -> Creer votre personnage");
-		System.out.println("3 -> Instruction");
-		System.out.println("4 -> Quitter");
+		System.out.println("3 -> Stats");
+		System.out.println("4 -> Instruction");
+		System.out.println("5 -> Quitter");
 		System.out.println("------------------------------------------------");
 		int choice = in.nextInt();
 
@@ -85,9 +89,20 @@ public class Menu {
 					createChar();
 					break;
 				case 3:
-					rules();
+					System.out.print("  NOM   -");
+					System.out.print("   GENRE   -");
+					System.out.print("   SANTEE   -");
+					System.out.print("   FORCE   -");
+					System.out.print("   ARMES   -");
+					System.out.println("   ARGENT   -");
+					System.out.println("");
+					bdd.dbQuery("SELECT * FROM Hero ORDER BY health DESC");
+					menu();
 					break;
 				case 4:
+					rules();
+					break;
+				case 5:
 					exit();
 				default:
 					System.out.println("Choix non valide");
@@ -235,8 +250,15 @@ public class Menu {
 		return player;
 	}
 
+	public Driver getBdd(){ return bdd;}
+
 	public void setPlayer(Character player) {
 		this.player = player;
 	}
-	
+
+
+
+
+
+
 }

@@ -1,6 +1,7 @@
 package game;
 
 
+import bdd.Driver;
 import cases.BalekCase;
 import cases.Case;
 import enemies.Balek;
@@ -97,7 +98,9 @@ public class Gaming {
 
 
 			if (player.getHealth() > 0){
+				saveStats();
 				youWin();
+
 			} else {
 				gameOver();
 			}
@@ -190,6 +193,10 @@ public class Gaming {
 		System.out.println("   \\\\\\ _..---.|.---.._ ///");
 		System.out.println("    \\\\`_..---.Y.---.._`//");
 		System.out.println("     '`               `'");
+	}
+
+	public void saveStats(){
+		menu.getBdd().insertInto("INSERT INTO Hero (name, type, health, strength, weaponpower, money) VALUE ('"+ menu.getPlayer().getName()+"', 'test', "+menu.getPlayer().getHealth()+", "+menu.getPlayer().getStrength()+", '"+menu.getPlayer().getLeftHand()+"', "+menu.getPlayer().getWallet()+")");
 	}
 
 
