@@ -12,7 +12,7 @@ public class Storm extends Power{
 	 * contructeur du puvoir avec les parametre des attributs du parent
 	 */
 	public Storm() {
-		super("\u26A1  Eclair", 2);
+		super("Eclair", 2);
 	}
 
 	

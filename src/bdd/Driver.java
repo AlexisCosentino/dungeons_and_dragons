@@ -34,9 +34,10 @@ public class Driver {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdd_java", "java", "root");
             Statement statement = connection.createStatement();
-            statement.executeQuery(query);
+            statement.executeUpdate(query);
 
-            } catch (SQLException throwables) {
+
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }

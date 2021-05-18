@@ -17,7 +17,7 @@ public class Wizard extends Character {
 	 * Constructeur avec les parametres du parent
 	 */
 	public Wizard(){
-		super("Magicien", 3, 8, 0);
+		super("Magicien", 15, 15, 50, "Wizard");
 		this.power = null;
 	}
 
@@ -25,7 +25,7 @@ public class Wizard extends Character {
 	 * Constructeur avec les parametres du parent
 	 */
 	public Wizard(String name, Power power) {
-		super(name, 3, 8, 0);
+		super(name, 3, 8, 0, "Wizard");
 		this.power = power;
 	}
 
@@ -36,7 +36,7 @@ public class Wizard extends Character {
 		if (power != null){
 			return power.getPowerName();
 		} else {
-			return "Pas de pouvoir";
+			return "vide";
 		}
 	}
 

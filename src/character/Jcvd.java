@@ -18,7 +18,7 @@ public class Jcvd extends Character{
      * Constructeur avec les parametres du parent
      */
     public Jcvd(){
-        super("Jean Claude Van Damme", 6, 6, 6);
+        super("Jean Claude Van Damme", 6, 6, 6, "JCVD");
         this.power = null;
     }
 
@@ -26,7 +26,7 @@ public class Jcvd extends Character{
      * Constructeur avec les parametres du parent
      */
     public Jcvd(String name, Power power){
-        super(name, 6,6, 5);
+        super(name, 6,6, 5, "JCVD");
         this.power = power;
     }
 
@@ -36,7 +36,7 @@ public class Jcvd extends Character{
         if (power != null){
             return power.getPowerName();
         } else {
-            return "J'adore l'eau, dans 20 - 30 ans il y en n'aura plus !";
+            return "<jadore lo dan 20 30 an yen aura plu>";
         }
     }
 

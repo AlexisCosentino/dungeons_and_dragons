@@ -17,7 +17,7 @@ public class Warrior extends Character {
 	 * Constructeur avec les parametres du parent
 	 */
 	public Warrior(){
-		super("Guerrier", 5, 5, 0);
+		super("Guerrier", 5, 5, 0, "Warrior");
 		this.weapon = weapon;
 	}
 
@@ -25,7 +25,7 @@ public class Warrior extends Character {
 	 * Constructeur avec les parametres du parent
 	 */
 	public Warrior(String name, Weapon weapon) {
-		super(name, 5, 5, 0);
+		super(name, 5, 5, 0, "Warrior");
 		this.weapon = weapon;
 	}
 
@@ -36,7 +36,7 @@ public class Warrior extends Character {
 		if (weapon != null){
 			return weapon.getWeaponName();
 		} else {
-			return "Pas d'arme";
+			return "vide";
 		}
 	}
 

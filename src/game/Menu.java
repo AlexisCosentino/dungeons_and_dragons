@@ -75,9 +75,10 @@ public class Menu {
 		System.out.println("------------------------------------------------");
 		System.out.println("1 -> Jouer");
 		System.out.println("2 -> Creer votre personnage");
-		System.out.println("3 -> Stats");
-		System.out.println("4 -> Instruction");
-		System.out.println("5 -> Quitter");
+		System.out.println("3 -> Charger");
+		System.out.println("4 -> Best Score");
+		System.out.println("5 -> Instruction");
+		System.out.println("6 -> Quitter");
 		System.out.println("------------------------------------------------");
 		int choice = in.nextInt();
 
@@ -88,7 +89,9 @@ public class Menu {
 				case 2:
 					createChar();
 					break;
-				case 3:
+				case 3 :
+					chargeGame();
+				case 4:
 					System.out.print("  NOM   -");
 					System.out.print("   GENRE   -");
 					System.out.print("   SANTEE   -");
@@ -96,13 +99,13 @@ public class Menu {
 					System.out.print("   ARMES   -");
 					System.out.println("   ARGENT   -");
 					System.out.println("");
-					bdd.dbQuery("SELECT * FROM Hero ORDER BY health DESC");
+					bdd.dbQuery("SELECT * FROM score ORDER BY health DESC");
 					menu();
 					break;
-				case 4:
+				case 5:
 					rules();
 					break;
-				case 5:
+				case 6:
 					exit();
 				default:
 					System.out.println("Choix non valide");
@@ -110,42 +113,6 @@ public class Menu {
 			}
 	}
 
-	/*
-	public void createChare(){
-		System.out.println("Que voulez-vous jouer :");
-		System.out.println("------------------------------------------------");
-		System.out.println("1 -> MAGICIEN (Santee faible, Attaque forte)");
-		System.out.println("2 -> GUERRIER (Santee forte, Attaque faible)");
-		System.out.println("4 -> Quitter le jeu");
-		System.out.println("------------------------------------------------");
-
-		int choice = in.nextInt();
-
-		switch (choice){
-			case 1:
-				player = new Wizard(name, power);
-				System.out.println("Vous avez choisi d'etre un Magicien, NOM : " + player.getName() + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
-				break;
-			case 2 :
-				player = new Warrior(name, weapon);
-				System.out.println("Vous avez choisi d'etre un Guerrier, NOM : " + player.getName() + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
-				break;
-			case 3:
-				player = new Jcvd("Jean-Claude Van Damme", power);
-				System.out.println("Vous avez choisi d'etre " + player.getName() + ", SANTEE : " + player.getHealth() + " et FORCE : " + player.getStrength());
-				System.out.println("Vous aurez la santee d'un guerrier et les pouvoirs d'un magicien");
-				break;
-			case 4:
-				exit();
-
-			default:
-				System.out.println("Choix non valide");
-				createChar();
-		}
-		waitAndSee(1000);
-		menu();
-	}
-	 */
 
 
 	/**
@@ -256,7 +223,20 @@ public class Menu {
 		this.player = player;
 	}
 
+	public void chargeGame(){
+		System.out.print("  NOM   -");
+		System.out.print("   GENRE   -");
+		System.out.print("   SANTEE   -");
+		System.out.print("   FORCE   -");
+		System.out.print("   ARMES   -");
+		System.out.println("   ARGENT   -");
+		System.out.println("");
+		getBdd().dbQuery("SELECT * FROM savedGame");
 
+		int choice = in.nextInt();
+
+
+	}
 
 
 

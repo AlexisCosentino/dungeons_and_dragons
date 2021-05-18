@@ -12,6 +12,7 @@ abstract public class Character {
 	private int health;
 	private int strength;
 	private int wallet;
+	private String type;
 
 
 	/**
@@ -21,11 +22,12 @@ abstract public class Character {
 	 * @param strength
 	 * @param wallet
 	 */
-	public Character(String name, int health, int strength, int wallet) {
+	public Character(String name, int health, int strength, int wallet, String type) {
 		this.name = name;
 		this.health = health;
 		this.strength = strength;
 		this.wallet = wallet;
+		this.type = type;
 	}
 
 	/**
@@ -33,6 +35,8 @@ abstract public class Character {
 	 * @return une action qui permet de prendre une arme en main
 	 */
 	public abstract String getLeftHand();
+
+	public String getType(){return type;}
 
 	public String getName() {
 		return name;

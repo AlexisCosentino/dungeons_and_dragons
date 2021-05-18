@@ -130,9 +130,19 @@ public class Gaming {
 					wantPlay();
 					break;
 				case 3:
-					System.out.println("Aucune race pour quitter en cours de jeu ! CIAO !");
-					System.exit(0);
-
+					System.out.println("Voulez-vous sauvegarder la partie avant de quitter ?");
+					System.out.println("1 -> OUI		2 -> NON");
+					choice = in.nextInt();
+					switch (choice) {
+						case 1:
+							SaveGame();
+							System.out.println("Sauvegarde effectué ! A bientot gros !");
+							System.exit(0);
+							break;
+						case 2:
+							System.out.println("A bientot gros !");
+							System.exit(0);
+					}
 				default:
 					System.out.println("Choix non valide");
 					wantPlay();
@@ -196,7 +206,11 @@ public class Gaming {
 	}
 
 	public void saveStats(){
-		menu.getBdd().insertInto("INSERT INTO Hero (name, type, health, strength, weaponpower, money) VALUE ('"+ menu.getPlayer().getName()+"', 'test', "+menu.getPlayer().getHealth()+", "+menu.getPlayer().getStrength()+", '"+menu.getPlayer().getLeftHand()+"', "+menu.getPlayer().getWallet()+")");
+		menu.getBdd().insertInto("INSERT INTO score (name, type, health, strength, weaponpower, money) VALUE ('"+ menu.getPlayer().getName()+"', '"+menu.getPlayer().getType()+"', "+menu.getPlayer().getHealth()+", "+menu.getPlayer().getStrength()+", '"+menu.getPlayer().getLeftHand()+"', "+menu.getPlayer().getWallet()+");");
+	}
+
+	public void SaveGame(){
+		menu.getBdd().insertInto("INSERT INTO savedgame (name, type, health, strength, weaponpower, money, position) VALUE ('"+menu.getPlayer().getName()+"', '"+menu.getPlayer().getType()+"', "+menu.getPlayer().getHealth()+", "+menu.getPlayer().getStrength()+", '"+menu.getPlayer().getLeftHand()+"', "+menu.getPlayer().getWallet()+", "+board.getIndexPlayer()+"); ");
 	}
 
 

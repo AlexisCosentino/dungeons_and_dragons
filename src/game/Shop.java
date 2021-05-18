@@ -35,10 +35,10 @@ public class Shop {
         System.out.println("                SHOP      J'ai "+player.getWallet()+"元       ");
         System.out.println("      " + player.toString());
         System.out.println("  |----------------------------------------------|");
-        System.out.println("1. \uD83C\uDF5F FRITE 	->     	VIE +2        10 元");
-        System.out.println("2. \uD83C\uDF55 PIZZA 	->     	VIE +4        15 元");
-        System.out.println("3. \u2615 CAFE      	->   	FORCE +2      10 元");
-        System.out.println("4. \u2728 COCAINE      	->   	FORCE +4      15 元");
+        System.out.println("1. \uD83C\uDF5F FRITE       	->     	VIE +2        10 元");
+        System.out.println("2. \uD83C\uDF55 PIZZA       	->     	VIE +4        15 元");
+        System.out.println("3. \u2615 CAFE      	        ->   	FORCE +2      10 元");
+        System.out.println("4. \u2728 COCAINE      	    ->   	FORCE +4      15 元");
         System.out.println("5. \uD83C\uDFA8 JOLI DESSIN     	->   	               2 元");
         System.out.println("6. EXIT");
         int choice = in.nextInt();
