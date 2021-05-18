@@ -54,6 +54,7 @@ public class Gaming {
 	 */
 	public void launchGame(){
 		Collections.shuffle(board.getListe(), new Random());	//RANDOM ARRAYLIST
+		board.setIndexPlayer(menu.getSavedIndex());
 
 		while (player.getHealth() > 0 && board.getIndexPlayer() < board.getListeSize()){
 			wantPlay();

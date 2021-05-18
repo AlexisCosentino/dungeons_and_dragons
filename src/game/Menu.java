@@ -24,6 +24,7 @@ public class Menu {
 	private Scanner in;
 	private String name;
 	private Driver bdd;
+	private int savedIndex;
 
 
 	/**
@@ -35,6 +36,7 @@ public class Menu {
 		this.power = null;
 		this.in = new Scanner(System.in);
 		this.bdd = new Driver();
+		this.savedIndex = 0;
 
 	}
 
@@ -213,6 +215,41 @@ public class Menu {
 		}
 	}
 
+
+	public void chargeGame() {
+		System.out.print("  ID   -");
+		System.out.print("   NOM   -");
+		System.out.print("   GENRE   -");
+		System.out.print("   SANTEE   -");
+		System.out.print("   FORCE   -");
+		System.out.print("   ARMES   -");
+		System.out.print("   ARGENT   -");
+		System.out.println("   CASE   -");
+		System.out.println("");
+		getBdd().showSavedGame("SELECT * FROM savedGame");
+		System.out.println("");
+		System.out.println("Entrez l'id du jeu à charger :");
+		int choice = in.nextInt();
+		try {
+		//	Class<?> currentHero = Class.forName("character." + bdd.getStringData("SELECT * FROM savedgame WHERE id = " + choice + ";", "type"));
+			System.out.println(bdd.getType(choice));
+			Class<?> currentHero = Class.forName("character." + bdd.getType(choice));
+			player = (Character) currentHero.newInstance();
+
+		} catch (Exception e) {
+			System.out.println("Cette classe n'existe pas !");
+			createChar();
+		}
+		player.setHealth(bdd.getIntData("SELECT health from savedgame WHERE id = "+choice+"", "health"));
+		player.setStrength(bdd.getIntData("SELECT strength from savedgame WHERE id = "+choice+"", "strength"));
+		player.setWallet(bdd.getIntData("SELECT money from savedgame WHERE id = "+choice+"", "money"));
+		savedIndex = bdd.getIntData("SELECT position FROM savedgame WHERE id = "+choice+"", "position");
+		waitAndSee(1000);
+		menu();
+	}
+
+	public int getSavedIndex(){return savedIndex;}
+
 	public Character getPlayer() {
 		return player;
 	}
@@ -222,23 +259,6 @@ public class Menu {
 	public void setPlayer(Character player) {
 		this.player = player;
 	}
-
-	public void chargeGame(){
-		System.out.print("  NOM   -");
-		System.out.print("   GENRE   -");
-		System.out.print("   SANTEE   -");
-		System.out.print("   FORCE   -");
-		System.out.print("   ARMES   -");
-		System.out.println("   ARGENT   -");
-		System.out.println("");
-		getBdd().dbQuery("SELECT * FROM savedGame");
-
-		int choice = in.nextInt();
-
-
-	}
-
-
 
 
 }
